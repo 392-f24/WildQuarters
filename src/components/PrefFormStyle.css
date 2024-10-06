@@ -1,0 +1,51 @@
+/* Container for the form */
+form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Label Styling */
+form label {
+    font-size: 1.2em;
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Styling for each question's container */
+form > div {
+    margin-bottom: 20px;
+}
+
+/* Radio Buttons and Options */
+form input[type="radio"] {
+    margin-right: 10px;
+}
+
+form div > div {
+    margin-left: 20px;
+    margin-bottom: 8px;
+}
+
+/* Button Styling */
+form button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
