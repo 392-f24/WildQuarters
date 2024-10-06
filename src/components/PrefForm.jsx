@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const PrefForm = () => {
     const [data, setData] = useState({
-        name: '',
+        fullname: '',
         major: '',
         location: '',
         size: '',
@@ -20,13 +20,94 @@ const PrefForm = () => {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setData((prevData) => {
-           const newData = {...prevData, [name]:value}
+           const newData = {...prevData, [name]:value};
+           console.log(newData);
            return newData;
         });
     };
 
     return (
         <form>
+            <div className="personal-info">
+                <label>Personal Information</label>
+                <input type="text" placeholder="Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
+                <input type="text" placeholder="Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
+                <textarea placeholder="Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
+            </div>
+
+            <div>
+                <label>Location</label>
+                <div>
+                    <input 
+                        type="radio"
+                        name="location"
+                        value="north"
+                        checked={data.location === 'north'}
+                        onChange={handleChange}/> North
+                </div>
+
+                <div>
+                    <input 
+                        type="radio"
+                        name="location"
+                        value="south"
+                        checked={data.location === 'south'}
+                        onChange={handleChange}/> South
+                </div>
+            </div>
+
+
+            <div>
+                <label>Room Size</label>
+                <div>
+                    <input 
+                        type="radio"
+                        name="size"
+                        value="double"
+                        checked={data.size === 'double'}
+                        onChange={handleChange}/> Double
+                </div>
+
+                <div>
+                    <input 
+                        type="radio"
+                        name="size"
+                        value="triple"
+                        checked={data.size === 'triple'}
+                        onChange={handleChange}/> Triple
+                </div>
+            </div>
+
+            <div>
+                <label>Wake Up Time</label>
+                <div>
+                    <input 
+                        type="radio"
+                        name="wakeUpTime"
+                        value="6-8 AM"
+                        checked={data.wakeUpTime === '6-8 AM'}
+                        onChange={handleChange}/> 6-8 AM
+                </div>
+
+                <div>
+                    <input 
+                        type="radio"
+                        name="wakeUpTime"
+                        value="8-10AM"
+                        checked={data.wakeUpTime === '8-10AM'}
+                        onChange={handleChange}/> 8-10AM
+                </div>
+
+                <div>
+                    <input 
+                        type="radio"
+                        name="wakeUpTime"
+                        value="8-10AM"
+                        checked={data.wakeUpTime === '10AM-12PM'}
+                        onChange={handleChange}/> 10AM-12PM
+                </div>
+            </div>
+
             <div>
                 <label>Bedtime:</label>
                 <div>
