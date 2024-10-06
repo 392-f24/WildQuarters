@@ -6,7 +6,7 @@ const Answer = (props) => {
             type="radio"
             name={props.name}
             value={props.answer}
-            checked={props.data.location === props.answer}
+            checked={props.data[props.name] === props.answer}
             onChange={(e) => props.handleChange(e)}/> {props.answer}
     </div>);
 }

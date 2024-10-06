@@ -40,7 +40,7 @@ const PrefForm = () => {
 
             <Question label="Size" name="size" answers={['double', 'triple']} data={data} handleChange={handleChange}/>
 
-            <Question label="Wake Up Time" name="wakeUpTime" answers={['6-8 AM', '8-10 AM', '10AM-12PM']} data={data} handle={handleChange}/>
+            <Question label="Wake Up Time" name="wakeUpTime" answers={['6-8 AM', '8-10 AM', '10AM-12PM']} data={data} handleChange={handleChange}/>
 
             <Question label="Bedtime" name="bedTime" answers={['early', 'late']} data={data} handleChange={handleChange}/>
 
