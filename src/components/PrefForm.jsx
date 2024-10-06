@@ -5,6 +5,7 @@ const PrefForm = () => {
         {
             name: '',
             major: '',
+            desc: '', 
             location: '',
             size: '',
             wakeUpTime: '',
@@ -12,6 +13,7 @@ const PrefForm = () => {
             guests: '',
             clean: '',
             noise: '',
+            pets: ''
         })
 
 
@@ -27,4 +29,4 @@ const PrefForm = () => {
 
 }
 
-export default Preform;
+export default PrefForm;
