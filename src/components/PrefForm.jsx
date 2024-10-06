@@ -1,8 +1,8 @@
 import './PrefFormStyle.css';
 import Question from './Question.jsx';
-
-
 import { useState } from 'react'; 
+import { Link } from "react-router-dom";
+
 
 const PrefForm = () => {
     const [data, setData] = useState({
@@ -51,7 +51,9 @@ const PrefForm = () => {
             <Question label="Noise Level Preference" name="noise" answers={['quiet', 'occasional', 'fine with noises']} data={data} handleChange={handleChange}/>
 
 
-            <button>Submit</button>       
+            <Link to="/matches">
+                <button type="button">Submit</button>
+            </Link>      
         </form>
     );
 };
