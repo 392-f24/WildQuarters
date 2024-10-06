@@ -19,9 +19,9 @@ const PrefForm = () => {
     // Handler to update form data
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setData({
-            ...data,
-            [name]: value,
+        setData((prevData) => {
+           const newData = {...prevData, [name]:value}
+           return newData;
         });
     };
 
