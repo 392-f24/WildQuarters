@@ -1,11 +1,12 @@
 import './PrefFormStyle.css';
-
-
+import Question from './Question.jsx';
 import { useState } from 'react'; 
+import { Link } from "react-router-dom";
+
 
 const PrefForm = () => {
     const [data, setData] = useState({
-        name: '',
+        fullname: '',
         major: '',
         location: '',
         size: '',
@@ -19,112 +20,40 @@ const PrefForm = () => {
     // Handler to update form data
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setData({
-            ...data,
-            [name]: value,
+        setData((prevData) => {
+           const newData = {...prevData, [name]:value};
+           console.log(newData);
+           return newData;
         });
     };
 
     return (
         <form>
-            <div>
-                <label>Bedtime:</label>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="bedTime" 
-                        value="early" 
-                        checked={data.bedTime === 'early'}
-                        onChange={handleChange}
-                    /> Early
-                </div>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="bedTime" 
-                        value="late" 
-                        checked={data.bedTime === 'late'}
-                        onChange={handleChange}
-                    /> Late
-                </div>
+            <div className="personal-info">
+                <label>Personal Information</label>
+                <input type="text" placeholder="Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
+                <input type="text" placeholder="Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
+                <textarea placeholder="Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
             </div>
 
-            <div>
-                <label>Guests:</label>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="guests" 
-                        value="yes" 
-                        checked={data.guests === 'yes'}
-                        onChange={handleChange}
-                    /> Yes
-                </div>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="guests" 
-                        value="no" 
-                        checked={data.guests === 'no'}
-                        onChange={handleChange}
-                    /> No
-                </div>
-            </div>
+            <Question label="Location" name="location" answers={['north', 'south']} data={data} handleChange={handleChange}/>
 
-            <div>
-                <label>Cleanliness:</label>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="clean" 
-                        value="messy" 
-                        checked={data.clean === 'messy'}
-                        onChange={handleChange}
-                    /> Messy
-                </div>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="clean" 
-                        value="clean" 
-                        checked={data.clean === 'clean'}
-                        onChange={handleChange}
-                    /> Clean
-                </div>
-            </div>
+            <Question label="Size" name="size" answers={['double', 'triple']} data={data} handleChange={handleChange}/>
 
-            <div>
-                <label>Noise Level Preference:</label>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="noise" 
-                        value="quiet" 
-                        checked={data.noise === 'quiet'}
-                        onChange={handleChange}
-                    /> Quiet all times
-                </div>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="noise" 
-                        value="occasional" 
-                        checked={data.noise === 'occasional'}
-                        onChange={handleChange}
-                    /> Occasional noise
-                </div>
-                <div>
-                    <input 
-                        type="radio" 
-                        name="noise" 
-                        value="fineWithNoise" 
-                        checked={data.noise === 'fineWithNoise'}
-                        onChange={handleChange}
-                    /> Fine with noises
-                </div>
-            </div>
+            <Question label="Wake Up Time" name="wakeUpTime" answers={['6-8 AM', '8-10 AM', '10AM-12PM']} data={data} handleChange={handleChange}/>
 
-            <button>Submit</button>       
+            <Question label="Bedtime" name="bedTime" answers={['early', 'late']} data={data} handleChange={handleChange}/>
+
+            <Question label="Guests" name="guests" answers={['yes', 'no']} data={data} hanldeChange={handleChange}/>
+            
+            <Question label="Cleanliness" name="clean" answers={['messy', 'clean']} data={data} handleChange={handleChange}/>
+
+            <Question label="Noise Level Preference" name="noise" answers={['quiet', 'occasional', 'fine with noises']} data={data} handleChange={handleChange}/>
+
+
+            <Link to="/matches">
+                <button type="button">Submit</button>
+            </Link>      
         </form>
     );
 };
