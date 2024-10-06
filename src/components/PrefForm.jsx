@@ -44,7 +44,7 @@ const PrefForm = () => {
 
             <Question label="Bedtime" name="bedTime" answers={['early', 'late']} data={data} handleChange={handleChange}/>
 
-            <Question label="Guests" name="guests" answers={['yes', 'no']} data={data} hanldeChange={handleChange}/>
+            <Question label="Guests" name="guests" answers={['yes', 'no']} data={data} handleChange={handleChange}/>
             
             <Question label="Cleanliness" name="clean" answers={['messy', 'clean']} data={data} handleChange={handleChange}/>
 
