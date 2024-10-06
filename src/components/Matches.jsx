@@ -26,10 +26,14 @@ const roommateInfo = {
 }
 
 const Matches = () => (
-    <div>
+    <div>   
+        <h1 className='text-center'>Potential Roommates</h1>
+        <p className='text-center'>Sorted by <i>Best Match</i></p>
+        <div>
         { Object.entries(roommateInfo).map(([id, profile]) => <MatchCard key={id} profile={profile} />) }
         {/* <MatchCard profile={roommateInfo.patrick} />
         <MatchCard profile={roommateInfo.ellie} /> */}
+        </div>
     </div>
 );
 
