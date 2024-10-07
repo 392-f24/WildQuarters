@@ -1,4 +1,4 @@
-import './PrefFormStyle.css';
+import './PrefForm.css';
 
 const Answer = (props) => {
     return (<div>
