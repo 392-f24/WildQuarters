@@ -8,6 +8,9 @@ const PrefForm = () => {
     const [data, setData] = useState({
         fullname: '',
         major: '',
+        desc: '',
+        gender: '',
+        roommateGender: '',
         location: '',
         size: '',
         wakeUpTime: '',
@@ -35,6 +38,10 @@ const PrefForm = () => {
                 <input type="text" placeholder=" Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
                 <textarea placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
             </div>
+
+            <Question label="Your Gender" name="gender" answers={['Male', 'Female', 'Non-binary']} data={data} handleChange={handleChange} />
+
+            <Question label="Roomate Gender" name="roommateGender" answers={['Male', 'Female', 'Non-binary']} data={data} handleChange={handleChange} />
 
             <Question label="Location" name="location" answers={['North', 'South']} data={data} handleChange={handleChange}/>
 
