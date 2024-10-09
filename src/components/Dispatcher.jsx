@@ -6,7 +6,7 @@ const Dispatcher = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" element={<PrefForm />} />
+                <Route path="/" element={<PrefForm/>} />
                 <Route path="/matches" element={<Matches />} />
             </Routes>
         </BrowserRouter>
