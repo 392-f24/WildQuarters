@@ -3,7 +3,7 @@ import './PrefForm.css';
 const Answer = (props) => {
     return (<div className="form-check">
             <input 
-            type="radio"
+            type={props.type}
             className="form-check-input"
             name={props.name}
             value={props.answer}
