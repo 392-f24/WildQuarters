@@ -39,9 +39,9 @@ const PrefForm = () => {
                 <textarea className="border rounded border-white" placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
             </div>
 
-            <Question label="Your Gender" name="gender" answers={['Male', 'Female', 'Non-binary']} data={data} handleChange={handleChange} />
+            <Question label="Your Gender" name="gender" answers={['Male', 'Female', 'Non-binary', 'Other']} data={data} handleChange={handleChange} />
 
-            <Question label="Roomate Gender" name="roommateGender" answers={['Male', 'Female', 'Non-binary']} data={data} handleChange={handleChange} />
+            <Question label="Roomate Gender" name="roommateGender" answers={['Male', 'Female', 'Non-binary', 'Any']} data={data} handleChange={handleChange} />
 
             <Question label="Location" name="location" answers={['North', 'South']} data={data} handleChange={handleChange}/>
 
