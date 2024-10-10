@@ -33,10 +33,10 @@ const PrefForm = () => {
     return (
         <form>
             <div className="personal-info">
-                <label>Personal Information</label>
-                <input type="text" placeholder=" Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
-                <input type="text" placeholder=" Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
-                <textarea placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
+                <h1>Personal Information</h1>
+                <input className="border rounded border-white" type="text" placeholder=" Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
+                <input className="border rounded border-white" type="text" placeholder=" Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
+                <textarea className="border rounded border-white" placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
             </div>
 
             <Question label="Your Gender" name="gender" answers={['Male', 'Female', 'Non-binary']} data={data} handleChange={handleChange} />

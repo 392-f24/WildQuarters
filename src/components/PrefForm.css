@@ -5,17 +5,23 @@ form {
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background-color: #6c31af;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Label Styling */
-form label {
-    font-size: 1.2em;
-    color: #333;
+
+form h1, h2 {
+    color: whitesmoke;
     font-weight: bold;
     display: block;
     margin-bottom: 10px;
+    background-color: #411a6c;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+form h2 {
+    font-size: 1.2em;
 }
 
 /* Styling for each question's container */
@@ -26,6 +32,10 @@ form > div {
 /* Radio Buttons and Options */
 form input[type="radio"] {
     margin-right: 10px;
+}
+
+form label {
+    color: whitesmoke;
 }
 
 form div > div {
@@ -39,15 +49,16 @@ form button {
     padding: 10px 20px;
     font-size: 1em;
     color: #fff;
-    background-color: #007bff;
+    background-color: #411a6c;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #0056b3;
+    background-color: #311550;
 }
 
 .personal-info {

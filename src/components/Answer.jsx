@@ -1,14 +1,20 @@
 import './PrefForm.css';
 
 const Answer = (props) => {
-    return (<div>
-        <input 
+    return (<div className="form-check">
+            <input 
             type="radio"
+            className="form-check-input"
             name={props.name}
             value={props.answer}
             checked={props.data[props.name] === props.answer}
-            onChange={(e) => props.handleChange(e)}/> {props.answer}
-    </div>);
+            onChange={(e) => props.handleChange(e)}/>
+            <label
+            className="form-check-label"
+            for={props.name}>
+                {props.answer}
+            </label>
+        </div>);
 }
 
 export default Answer; 
