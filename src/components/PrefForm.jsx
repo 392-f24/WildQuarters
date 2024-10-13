@@ -11,9 +11,9 @@ const PrefForm = () => {
         number: '',
         desc: '',
         gender: '',
-        roommateGender: '',
+        roommateGender: [],
         location: '',
-        size: '',
+        size: [],
         wakeUpTime: '',
         bedTime: '',     // for bedtime radio
         guests: '',      // for guests radio
@@ -24,11 +24,29 @@ const PrefForm = () => {
     // Handler to update form data
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setData((prevData) => {
-           const newData = {...prevData, [name]:value};
-           console.log(newData);
-           return newData;
-        });
+        const isCheckBox = name === 'roommateGender' || name === 'size';
+        
+        if(isCheckBox) {
+            setData((prevData) => {
+                const newAnsArr = prevData[name].includes(value) ? 
+                                prevData[name].filter((ans) => value != ans) : 
+                                [...prevData[name], value];
+
+                const newData = {...prevData, [name]:newAnsArr};
+                console.log(newData);
+                return newData;
+            })
+           
+
+        } else {
+            setData((prevData) => {
+                const newData = {...prevData, [name]:value};
+                console.log(newData);
+                return newData;
+             });
+        }
+
+       
     };
 
     return (
