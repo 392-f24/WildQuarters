@@ -1,13 +1,15 @@
 import './PrefForm.css';
 import Question from './Question.jsx';
 import { useState } from 'react'; 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useDbUpdate } from '../utilities/firebase';
 
 
 const PrefForm = () => {
+    const navigate = useNavigate();
+
     const [data, setData] = useState({
-        fullname: '',
+        fullName: '',
         major: '',
         number: '',
         desc: '',
@@ -23,7 +25,7 @@ const PrefForm = () => {
     });
 
     
-    const [update, result] = useDbUpdate(`/roommateInfo/${data.fullname}`);
+    const [update, result] = useDbUpdate(`/roommateInfo/${data.fullName}`);
 
     // Handler to update form data
     const handleChange = (event) => {
@@ -55,15 +57,24 @@ const PrefForm = () => {
 
     const submit = (evt) => {
         evt.preventDefault();
+        //
+        if (data.size.length == 1) {
+            data.size = { 0: data.size[0] };
+        }
+        if (data.roommateGender.length == 1) {
+            data.roommateGender = { 0: data.roommateGender[0] };
+        }
+
         update(data);
         console.log('added');
+        navigate('/matches');
     }
 
     return (
         <form onSubmit={submit}>
             <div className="personal-info">
                 <h1>Personal Information</h1>
-                <input className="border rounded border-white" type="text" placeholder=" Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
+                <input className="border rounded border-white" type="text" placeholder=" Full Name" name="fullName" value={data.fullName} onChange={(event) => handleChange(event)}/>
                 <input className="border rounded border-white" type="text" placeholder=" Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
                 <input className="border rounded border-white" type="text" placeholder=" Phone Number" name="number" value={data.number} onChange={(event) => handleChange(event)}/>
                 <textarea className="border rounded border-white" placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
@@ -87,9 +98,7 @@ const PrefForm = () => {
 
             <Question label="Noise Level Preference" name="noise" answers={['Quiet', 'Occasional', 'Fine with noises']} data={data} handleChange={handleChange} type="radio" />
 
-            <Link to="/matches">
-                <button type="submit">Submit</button>
-            </Link>
+            <button type="submit">Submit</button>
         </form>
     );
 };
