@@ -1,36 +1,31 @@
 import React from 'react'
 import MatchCard from './MatchCard'
+import { useDbData } from '../utilities/firebase';
 
-const roommateInfo = {
-    "patrick": {
-        "name": "Patrick R.",
-        "match": "99%",
-        "description": "Double Room, Early Riser, North",
-        "img": "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
-    },
-    "ellie": {
-        "name": "Ellie L.",
-        "match": "92%",
-        "description": "Triple Room, Early Riser, North",
-        "img": "https://www.shutterstock.com/image-photo/young-beautiful-long-haired-college-600nw-2332995801.jpg"
-    },
-    "anya": {
-        "name": "Anya B.",
-        "match": "87%",
-        "description": "Double Room, Night Owl, South",
-        "img": "https://jillonthehill.com/wp-content/uploads/2020/08/IMG_0962-scaled.jpg"
+const Matches = () => {
+    const [rm, error] = useDbData('/roommateInfo');
+
+    if (error) {
+        return <div>Error loading data: {error.message}</div>;
     }
-}
 
-const Matches = () => (
-    <div>   
-        <h1 className='text-center'>Potential Roommates</h1>
-        <p className='text-center'>Sorted by <i>Best Match</i></p>
+    if (!rm) {
+        return <div>Loading...</div>;
+    }
+
+    return (
         <div>
-        { Object.entries(roommateInfo).map(([id, profile]) => <MatchCard key={id} profile={profile} />) }
+            <h1 className='text-center'>Potential Roommates</h1>
+            <p className='text-center'>Sorted by <i>Best Match</i></p>
+            <div>
+                {Object.entries(rm).map(([id, profile]) => (
+                    <MatchCard key={id} profile={profile} />
+                ))}
+            </div>
         </div>
-    </div>
-);
+    );
+};
 
 export default Matches;
+
 
