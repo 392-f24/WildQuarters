@@ -1,5 +1,7 @@
 import MatchCard from './MatchCard'
+import { useDbData } from '../utilities/firebase';
 
+<<<<<<< HEAD
 // FIXME: hardcoded for now, jiahui will write database fetch data feature
 const roommates = {
     "patrickJiang": {
@@ -90,20 +92,44 @@ const calculateMatchScore = (self, other) => {
 
 // hardcoded for now, once user auth is implemented, get this automatically
 const self = roommates["patrickJiang"];
+=======
+const Matches = () => {
+    const [rm, error] = useDbData('/roommateInfo');
 
-const Matches = () => (
-    <div>   
-        <h1 className='text-center'>Potential Roommates</h1>
-        <p className='text-center'>Sorted by <i>Best Match</i></p>
+    if (error) {
+        return <div>Error loading data: {error.message}</div>;
+    }
+>>>>>>> main
+
+    if (!rm) {
+        return <div>Loading...</div>;
+    }
+
+    return (
         <div>
+<<<<<<< HEAD
         { Object.entries(roommates).map(([id, profile]) => {
             const matchScore = calculateMatchScore(self, profile);
             if (profile.fullName !== self.fullName && matchScore > 0) {
                 return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
             }
         }) }
+=======
+            <h1 className='text-center'>Potential Roommates</h1>
+            <p className='text-center'>Sorted by <i>Best Match</i></p>
+            <div>
+                {Object.entries(rm).map(([id, profile]) => (
+                    <MatchCard key={id} profile={profile} />
+                ))}
+            </div>
+>>>>>>> main
         </div>
-    </div>
-);
+    );
+};
 
 export default Matches;
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> main
