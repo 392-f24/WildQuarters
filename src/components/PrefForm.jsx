@@ -2,6 +2,7 @@ import './PrefForm.css';
 import Question from './Question.jsx';
 import { useState } from 'react'; 
 import { Link } from "react-router-dom";
+import { useDbUpdate } from '../utilities/firebase';
 
 
 const PrefForm = () => {
@@ -20,6 +21,9 @@ const PrefForm = () => {
         clean: '',       // for messy/clean radio
         noise: '',       // for noise level radio
     });
+
+    
+    const [update, result] = useDbUpdate(`/roommateInfo/${data.fullname}`);
 
     // Handler to update form data
     const handleChange = (event) => {
@@ -49,8 +53,14 @@ const PrefForm = () => {
        
     };
 
+    const submit = (evt) => {
+        evt.preventDefault();
+        update(data);
+        console.log('added');
+    }
+
     return (
-        <form>
+        <form onSubmit={submit}>
             <div className="personal-info">
                 <h1>Personal Information</h1>
                 <input className="border rounded border-white" type="text" placeholder=" Full Name" name="fullname" value={data.fullname} onChange={(event) => handleChange(event)}/>
@@ -77,10 +87,9 @@ const PrefForm = () => {
 
             <Question label="Noise Level Preference" name="noise" answers={['Quiet', 'Occasional', 'Fine with noises']} data={data} handleChange={handleChange} type="radio" />
 
-
             <Link to="/matches">
-                <button type="button">Submit</button>
-            </Link>      
+                <button type="submit">Submit</button>
+            </Link>
         </form>
     );
 };

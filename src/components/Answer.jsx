@@ -13,7 +13,6 @@ const Answer = (props) => {
             value={props.answer}
             checked={props.type === 'radio' ? props.data[props.name] === props.answer : props.data[props.name].includes(props.answer)}
             onChange={(e) => props.handleChange(e)}/>
-
             <label className="form-check-label" htmlFor={answerId}>
                 {props.answer}
             </label>
