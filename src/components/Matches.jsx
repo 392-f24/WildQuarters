@@ -1,52 +1,8 @@
 import MatchCard from './MatchCard'
 import { useDbData } from '../utilities/firebase';
 
-// FIXME: hardcoded for now, jiahui will write database fetch data feature
-// const roommates = {
-//     "patrickJiang": {
-//         fullName: "Patrick J.",
-//         phone: "123456789",
-//         major: "cs",
-//         desc: "student",
-//         housing: 0,
-//         gender: 1,
-//         roommateGender: [1, 2],
-//         size: [0, 1],
-//         wakeUpTime: 0,
-//         bedTime: 0,
-//         guests: 0,
-//         clean: 0,
-//         noise: 2,
-//         pets: 0,
-//         alcohol: 0,
-//         cigs: 0,
-//         weed: 1,
-//         photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
-//     },
-//     "patrickChen": {
-//         fullName: "Test",
-//         phone: "123456789",
-//         major: "cs",
-//         desc: "student",
-//         housing: 0,
-//         gender: 1,
-//         roommateGender: [1, 2],
-//         size: [0, 1],
-//         wakeUpTime: 0,
-//         bedTime: 0,
-//         guests: 0,
-//         clean: 0,
-//         noise: 2,
-//         pets: 0,
-//         alcohol: 1,
-//         cigs: 0,
-//         weed: 1,
-//         photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
-//     }
-// };
-
 const checkStrictFilters = (self, other) => {
-    if (self.housing !== other.housing) return false;
+    // if (self.housing !== other.housing) return false;
     if (!other.roommateGender.includes(self.gender)) return false;
     if (!self.roommateGender.includes(other.gender)) return false;
     if (!self.size.some(size => other.size.includes(size))) return false;
@@ -103,7 +59,7 @@ const Matches = () => {
     }
 
     // hardcoded for now, once user auth is implemented, get this automatically
-    const self = roommates["Anya"];
+    const self = roommates["Anya2"];
 
     return (
         <div>
