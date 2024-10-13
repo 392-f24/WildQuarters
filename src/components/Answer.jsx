@@ -11,7 +11,7 @@ const Answer = (props) => {
             onChange={(e) => props.handleChange(e)}/>
             <label
             className="form-check-label"
-            for={props.name}>
+            htmlFor={props.name}>
                 {props.answer}
             </label>
         </div>);
