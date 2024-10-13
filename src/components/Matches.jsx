@@ -1,50 +1,49 @@
 import MatchCard from './MatchCard'
 import { useDbData } from '../utilities/firebase';
 
-<<<<<<< HEAD
 // FIXME: hardcoded for now, jiahui will write database fetch data feature
-const roommates = {
-    "patrickJiang": {
-        fullName: "Patrick J.",
-        phone: "123456789",
-        major: "cs",
-        desc: "student",
-        housing: 0,
-        gender: 1,
-        roommateGender: [1, 2],
-        size: [0, 1],
-        wakeUpTime: 0,
-        bedTime: 0,
-        guests: 0,
-        clean: 0,
-        noise: 2,
-        pets: 0,
-        alcohol: 0,
-        cigs: 0,
-        weed: 1,
-        photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
-    },
-    "patrickChen": {
-        fullName: "Test",
-        phone: "123456789",
-        major: "cs",
-        desc: "student",
-        housing: 0,
-        gender: 1,
-        roommateGender: [1, 2],
-        size: [0, 1],
-        wakeUpTime: 0,
-        bedTime: 0,
-        guests: 0,
-        clean: 0,
-        noise: 2,
-        pets: 0,
-        alcohol: 1,
-        cigs: 0,
-        weed: 1,
-        photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
-    }
-};
+// const roommates = {
+//     "patrickJiang": {
+//         fullName: "Patrick J.",
+//         phone: "123456789",
+//         major: "cs",
+//         desc: "student",
+//         housing: 0,
+//         gender: 1,
+//         roommateGender: [1, 2],
+//         size: [0, 1],
+//         wakeUpTime: 0,
+//         bedTime: 0,
+//         guests: 0,
+//         clean: 0,
+//         noise: 2,
+//         pets: 0,
+//         alcohol: 0,
+//         cigs: 0,
+//         weed: 1,
+//         photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
+//     },
+//     "patrickChen": {
+//         fullName: "Test",
+//         phone: "123456789",
+//         major: "cs",
+//         desc: "student",
+//         housing: 0,
+//         gender: 1,
+//         roommateGender: [1, 2],
+//         size: [0, 1],
+//         wakeUpTime: 0,
+//         bedTime: 0,
+//         guests: 0,
+//         clean: 0,
+//         noise: 2,
+//         pets: 0,
+//         alcohol: 1,
+//         cigs: 0,
+//         weed: 1,
+//         photo: "https://bysophialee.com/wp-content/uploads/college-essentials-for-guys-4.jpg"
+//     }
+// };
 
 const checkStrictFilters = (self, other) => {
     if (self.housing !== other.housing) return false;
@@ -90,46 +89,34 @@ const calculateMatchScore = (self, other) => {
     return score;
 };
 
-// hardcoded for now, once user auth is implemented, get this automatically
-const self = roommates["patrickJiang"];
-=======
+
+
 const Matches = () => {
-    const [rm, error] = useDbData('/roommateInfo');
+    const [roommates, error] = useDbData('/roommateInfo');
 
     if (error) {
         return <div>Error loading data: {error.message}</div>;
     }
->>>>>>> main
 
-    if (!rm) {
+    if (!roommates) {
         return <div>Loading...</div>;
     }
 
+    // hardcoded for now, once user auth is implemented, get this automatically
+    const self = roommates["Anya"];
+
     return (
         <div>
-<<<<<<< HEAD
-        { Object.entries(roommates).map(([id, profile]) => {
-            const matchScore = calculateMatchScore(self, profile);
-            if (profile.fullName !== self.fullName && matchScore > 0) {
-                return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
-            }
-        }) }
-=======
             <h1 className='text-center'>Potential Roommates</h1>
             <p className='text-center'>Sorted by <i>Best Match</i></p>
-            <div>
-                {Object.entries(rm).map(([id, profile]) => (
-                    <MatchCard key={id} profile={profile} />
-                ))}
-            </div>
->>>>>>> main
+            { Object.entries(roommates).map(([id, profile]) => {
+                const matchScore = calculateMatchScore(self, profile);
+                if (profile.fullName !== self.fullName && matchScore > 0) {
+                    return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
+                }
+            }) }
         </div>
     );
 };
 
 export default Matches;
-<<<<<<< HEAD
-=======
-
-
->>>>>>> main
