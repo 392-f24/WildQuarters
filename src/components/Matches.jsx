@@ -3,8 +3,8 @@ import { useDbData } from '../utilities/firebase';
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;
-    if (!other.roommateGender.includes(self.gender)) return false;
-    if (!self.roommateGender.includes(other.gender)) return false;
+    if (!other.roommateGender.includes("Any") && !other.roommateGender.includes(self.gender)) return false;
+    if (!self.roommateGender.includes("Any") && !self.roommateGender.includes(other.gender)) return false;
     if (!self.size.some(size => other.size.includes(size))) return false;
 
     return true;

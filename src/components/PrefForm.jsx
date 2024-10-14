@@ -2,7 +2,7 @@ import './PrefForm.css';
 import Question from './Question.jsx';
 import { useState } from 'react'; 
 import { useNavigate } from "react-router-dom";
-import { useDbUpdate } from '../utilities/firebase';
+import { useDbUpdate, useStorageUpload } from '../utilities/firebase';
 
 
 const PrefForm = () => {
@@ -22,17 +22,23 @@ const PrefForm = () => {
         guests: '',      // for guests radio
         clean: '',       // for messy/clean radio
         noise: '',       // for noise level radio
+        profilePhoto: null,
     });
 
     
     const [update, result] = useDbUpdate(`/roommateInfo/${data.fullName}`);
+    const [upload, uploading, snapshot] = useStorageUpload(`/profilePhotos/${data.fullName}`);
 
     // Handler to update form data
     const handleChange = (event) => {
         const { name, value } = event.target;
         const isCheckBox = name === 'roommateGender' || name === 'size';
         
-        if(isCheckBox) {
+        if (name === 'profilePhoto'){
+            const file = files[0];
+            setData(prevData => ({ ...prevData, profilePhoto: file}));
+            console.log(file);
+        }else if(isCheckBox) {
             setData((prevData) => {
                 const newAnsArr = prevData[name].includes(value) ? 
                                 prevData[name].filter((ans) => value != ans) : 
@@ -55,9 +61,19 @@ const PrefForm = () => {
        
     };
 
-    const submit = (evt) => {
+    const submit = async (evt) => {
         evt.preventDefault();
         //
+        let photoURL = '';
+        if(data.profilePhoto){
+            const uploadedPhoto = await upload(data.profilePhoto);
+            photoURL = uploadedPhoto.ref.fullPath;
+        }
+
+        const submitData = {
+            ...data,
+            profilePhoto: photoURL
+        };
         if (data.size.length == 1) {
             data.size = { 0: data.size[0] };
         }
@@ -65,7 +81,7 @@ const PrefForm = () => {
             data.roommateGender = { 0: data.roommateGender[0] };
         }
 
-        update(data);
+        await update(data);
         console.log('added');
         navigate('/matches');
     }
@@ -78,6 +94,7 @@ const PrefForm = () => {
                 <input className="border rounded border-white" type="text" placeholder=" Major" name="major" value={data.major} onChange={(event) => handleChange(event)}/>
                 <input className="border rounded border-white" type="text" placeholder=" Phone Number" name="number" value={data.number} onChange={(event) => handleChange(event)}/>
                 <textarea className="border rounded border-white" placeholder=" Description" name="desc" value={data.desc} onChange={(event) => handleChange(event)}/>
+                <input className="border rounded border-white" type="file" name="profilePhoto" onChange={handleChange} accept="image/*"/>
             </div>
 
             <Question label="Your Gender" name="gender" answers={['Male', 'Female', 'Non-binary', 'Other']} data={data} handleChange={handleChange} type="radio" />
