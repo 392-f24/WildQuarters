@@ -1,0 +1,75 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+  }
+  
+  .cover-title {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .cover-title h1 {
+    font-size: 2.5em;
+    color: #ff4500;
+    margin-bottom: 10px;
+  }
+  
+  .cover-title p {
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #218838;
+  }
+  
+  .toggle-button {
+    background: none;
+    color: blue;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 10px;
+  }
+  
+  .toggle-button:hover {
+    color: darkblue;
+  }
+  

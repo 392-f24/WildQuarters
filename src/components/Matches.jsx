@@ -1,5 +1,8 @@
-import MatchCard from './MatchCard'
-import { useDbData } from '../utilities/firebase';
+import MatchCard from './MatchCard';
+import { auth, useDbData } from '../utilities/firebase';
+import { signOut } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
+import './Matches.css'
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;
@@ -45,10 +48,9 @@ const calculateMatchScore = (self, other) => {
     return score;
 };
 
-
-
 const Matches = () => {
     const [roommates, error] = useDbData('/roommateInfo');
+    const navigate = useNavigate();
 
     if (error) {
         return <div>Error loading data: {error.message}</div>;
@@ -58,13 +60,24 @@ const Matches = () => {
         return <div>Loading...</div>;
     }
 
-    // hardcoded for now, once user auth is implemented, get this automatically
+    // Simulating the logged-in user's data; you will need to replace this with actual data
     const self = roommates["Anya2"];
+
+    // Logout function
+    const handleLogout = async () => {
+        try {
+            await signOut(auth);
+            navigate("/"); // Redirect to login page after logout
+        } catch (error) {
+            console.error("Error logging out: ", error);
+        }
+    };
 
     return (
         <div>
             <h1 className='text-center'>Potential Roommates</h1>
             <p className='text-center'>Sorted by <i>Best Match</i></p>
+            <button onClick={handleLogout} className="logout-button">Logout</button>
             { Object.entries(roommates).map(([id, profile]) => {
                 const matchScore = calculateMatchScore(self, profile);
                 if (profile.fullName !== self.fullName && matchScore > 0) {
