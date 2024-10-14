@@ -1,75 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../utilities/firebase';
+import React, { useEffect } from 'react';
+import { signInWithGoogle, useAuthState } from '../utilities/firebase'; // Use the provided Google sign-in and auth state functions
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [isRegister, setIsRegister] = useState(false);
+  const [user] = useAuthState(); // Get the currently authenticated user
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      if (isRegister) {
-        await createUserWithEmailAndPassword(auth, email, password);
-        navigate("/pref-form");
-      } else {
-        await signInWithEmailAndPassword(auth, email, password);
-        navigate("/matches");
-      }
-    } catch (error) {
-      setError(error.message);
-    }
-  };
-
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        navigate("/matches");
-      }
-    });
-    return () => unsubscribe();
-  }, [navigate]);
+    if (user) {
+      navigate("/matches"); // Redirect to matches if already logged in
+    }
+  }, [user, navigate]);
+
+  const handleSignIn = () => {
+    signInWithGoogle();
+  };
 
   return (
     <div className="auth-page">
       <div className="cover-title">
         <h1>Get your matches now!</h1>
-        <p>Find your perfect match by creating an account or logging in.</p>
+        <p>Find your perfect match by signing in with Google.</p>
       </div>
-      <h2>{isRegister ? "Register" : "Login"}</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">{isRegister ? "Register" : "Login"}</button>
-      </form>
-      <p>
-        {isRegister ? "Already have an account?" : "Don't have an account?"}
-        <button onClick={() => setIsRegister(!isRegister)} className="toggle-button">
-          {isRegister ? "Login" : "Register"}
-        </button>
-      </p>
+      <button onClick={handleSignIn} className="google-signin-button">
+        Sign in with Google
+      </button>
     </div>
   );
 };

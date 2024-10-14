@@ -1,11 +1,8 @@
 import MatchCard from './MatchCard';
-import { auth, useDbData } from '../utilities/firebase';
-import { signOut } from 'firebase/auth';
+import { useDbData, signOut } from '../utilities/firebase';
 import { useNavigate } from 'react-router-dom';
-import './Matches.css'
 
 const checkStrictFilters = (self, other) => {
-    // if (self.housing !== other.housing) return false;
     if (!other.roommateGender.includes(self.gender)) return false;
     if (!self.roommateGender.includes(other.gender)) return false;
     if (!self.size.some(size => other.size.includes(size))) return false;
@@ -50,7 +47,7 @@ const calculateMatchScore = (self, other) => {
 
 const Matches = () => {
     const [roommates, error] = useDbData('/roommateInfo');
-    const navigate = useNavigate();
+    const navigate = useNavigate(); // For navigation after logout
 
     if (error) {
         return <div>Error loading data: {error.message}</div>;
@@ -66,7 +63,7 @@ const Matches = () => {
     // Logout function
     const handleLogout = async () => {
         try {
-            await signOut(auth);
+            await signOut();
             navigate("/"); // Redirect to login page after logout
         } catch (error) {
             console.error("Error logging out: ", error);
