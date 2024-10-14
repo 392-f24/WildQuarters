@@ -31,14 +31,15 @@ const PrefForm = () => {
 
     // Handler to update form data
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value, files } = event.target;
         const isCheckBox = name === 'roommateGender' || name === 'size';
+        const isProfilePhoto = name === 'profilePhoto';
         
-        if (name === 'profilePhoto'){
+        if (isProfilePhoto) {
             const file = files[0];
             setData(prevData => ({ ...prevData, profilePhoto: file}));
             console.log(file);
-        }else if(isCheckBox) {
+        } else if (isCheckBox) {
             setData((prevData) => {
                 const newAnsArr = prevData[name].includes(value) ? 
                                 prevData[name].filter((ans) => value != ans) : 
@@ -67,7 +68,12 @@ const PrefForm = () => {
         let photoURL = '';
         if(data.profilePhoto){
             const uploadedPhoto = await upload(data.profilePhoto);
-            photoURL = uploadedPhoto.ref.fullPath;
+            console.log(uploadedPhoto);
+            if (uploadedPhoto && uploadedPhoto.url) {
+                photoURL = uploadedPhoto.url;
+            } else {
+                console.error('File upload failed');
+            }
         }
 
         const submitData = {
@@ -81,7 +87,7 @@ const PrefForm = () => {
             data.roommateGender = { 0: data.roommateGender[0] };
         }
 
-        await update(data);
+        await update(submitData);
         console.log('added');
         navigate('/matches');
     }

@@ -2,6 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref, update } from 'firebase/database';
+import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -49,4 +50,30 @@ export const useDbUpdate = (path) => {
   }, [database, path]);
 
   return [updateData, result];
+};
+
+export const useStorageUpload = (storagePath) => {
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState(null);
+  const [fileURL, setFileURL] = useState('');
+
+  const upload = async (file) => {
+    setUploading(true);
+    setError(null);
+
+    try {
+      const storageRef = ref(storage, storagePath);
+      const snapshot = await uploadBytes(storageRef, file);
+      const downloadURL = await getDownloadURL(snapshot.ref);
+
+      setFileURL(downloadURL);
+      setUploading(false);
+      return { ref: snapshot.ref, url: downloadURL };
+    } catch (err) {
+      setError(err);
+      setUploading(false);
+    }
+  };
+
+  return [upload, uploading, fileURL, error];
 };
