@@ -2,7 +2,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 import { getDatabase, onValue, ref, update } from 'firebase/database';
-import { getAuth } from "firebase/auth";
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut as firebaseSignOut } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -20,7 +20,58 @@ const firebase = initializeApp(firebaseConfig);
 const database = getDatabase(firebase);
 const auth = getAuth(firebase);
 
-export { auth };
+export const signInWithGoogle = () => {
+  const provider = new GoogleAuthProvider();
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // You can access the Google account details here if needed
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const token = credential.accessToken;
+      const user = result.user;
+      console.log('User signed in:', user);
+    })
+    .catch((error) => {
+      // Handle Errors here.
+      console.error('Error signing in with Google:', error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      const email = error.email;
+      const credential = GoogleAuthProvider.credentialFromError(error);
+    });
+};
+
+// Sign out
+export const signOut = () => {
+  firebaseSignOut(auth)
+    .then(() => {
+      console.log('User signed out');
+    })
+    .catch((error) => {
+      console.error('Error signing out:', error);
+    });
+};
+
+// Custom hook to track the authentication state
+export const useAuthState = () => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
+
+    // Cleanup subscription on unmount
+    return () => unsubscribe();
+  }, []);
+
+  return [user];
+};
+
+export { auth }; // Export the auth object if needed elsewhere
 
 export const useDbData = (path) => {
   const [data, setData] = useState();
@@ -53,3 +104,4 @@ export const useDbUpdate = (path) => {
 
   return [updateData, result];
 };
+
