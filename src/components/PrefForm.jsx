@@ -22,12 +22,14 @@ const PrefForm = () => {
         guests: '',      // for guests radio
         clean: '',       // for messy/clean radio
         noise: '',       // for noise level radio
-        profilePhoto: null,
+        profilePhoto: "https://firebasestorage.googleapis.com/...",
     });
 
     
     const [update, result] = useDbUpdate(`/roommateInfo/${data.fullName}`);
-    const [upload, uploading, snapshot] = useStorageUpload(`/profilePhotos/${data.fullName}`);
+    // const [upload, uploading, snapshot] = useStorageUpload(`/profilePhotos/${data.fullName}`);
+    const [upload, uploading, fileURL, error] = useStorageUpload(`/profilePhotos/${data.fullName}`);// ELLIE'S AUTH CHANGE
+
 
     // Handler to update form data
     const handleChange = (event) => {
@@ -64,17 +66,26 @@ const PrefForm = () => {
 
     const submit = async (evt) => {
         evt.preventDefault();
-        //
+    
         let photoURL = '';
-        if(data.profilePhoto){
-            const uploadedPhoto = await upload(data.profilePhoto);
-            console.log(uploadedPhoto);
-            if (uploadedPhoto && uploadedPhoto.url) {
+        if (data.profilePhoto) {
+            try {
+                const uploadedPhoto = await upload(data.profilePhoto);
+                console.log('Uploaded Photo:', uploadedPhoto);
+                if (uploadedPhoto && uploadedPhoto.url) {
                 photoURL = uploadedPhoto.url;
-            } else {
-                console.error('File upload failed');
+        } else {
+            console.error('File upload failed');
+            if (error) {
+            console.error('Error during upload:', error);
             }
+            return; // Exit the function if upload fails
         }
+        } catch (uploadError) {
+        console.error('Upload exception:', uploadError);
+        return;
+        }
+    }
 
         const submitData = {
             ...data,

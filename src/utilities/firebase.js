@@ -1,8 +1,12 @@
 // Import the functions you need from the SDKs you need
 import { useCallback, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
-import { getDatabase, onValue, ref, update } from 'firebase/database';
-import { getStorage, uploadBytes, getDownloadURL } from 'firebase/storage';
+// so apparently we were getting errors because there were a ref from both database and storage, 
+//so they were overwriting other. so if we rename them that can fix it
+import { getDatabase, onValue, ref as databaseRef, update } from 'firebase/database';
+import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { getAuth, signInAnonymously } from 'firebase/auth'; // AUTH STUFF
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -19,13 +23,24 @@ const firebaseConfig = {
 const firebase = initializeApp(firebaseConfig);
 const database = getDatabase(firebase);
 const storage = getStorage(firebase);
+const auth = getAuth(firebase); // AUTH STUFF
+
+// Sign in anonymously
+signInAnonymously(auth)
+  .then(() => {
+    console.log('Signed in anonymously');
+  })
+  .catch((error) => {
+    console.error('Error signing in anonymously:', error.code, error.message);
+  });
+
 
 export const useDbData = (path) => {
   const [data, setData] = useState();
   const [error, setError] = useState(null);
 
   useEffect(() => (
-    onValue(ref(database, path), (snapshot) => {
+    onValue(databaseRef(database, path), (snapshot) => {
      setData( snapshot.val() );
     }, (error) => {
       setError(error);
@@ -44,7 +59,7 @@ const makeResult = (error) => {
 export const useDbUpdate = (path) => {
   const [result, setResult] = useState();
   const updateData = useCallback((value) => {
-    update(ref(database, path), value)
+    update(databaseRef(database, path), value)
     .then(() => setResult(makeResult()))
     .catch((error) => setResult(makeResult(error)))
   }, [database, path]);
@@ -62,8 +77,8 @@ export const useStorageUpload = (storagePath) => {
     setError(null);
 
     try {
-      const storageRef = ref(storage, storagePath);
-      const snapshot = await uploadBytes(storageRef, file);
+      const storageReference = storageRef(storage, storagePath);
+      const snapshot = await uploadBytes(storageReference, file);
       const downloadURL = await getDownloadURL(snapshot.ref);
 
       setFileURL(downloadURL);
@@ -72,6 +87,7 @@ export const useStorageUpload = (storagePath) => {
     } catch (err) {
       setError(err);
       setUploading(false);
+      console.error('Upload failed:', err);
     }
   };
 
