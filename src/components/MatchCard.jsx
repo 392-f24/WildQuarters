@@ -7,6 +7,16 @@ const pronounMapping = {
   'Other' : 'pronouns not specified'
 };
 
+const fieldMapping = {
+  bedTime : 'Bedtime',
+  clean : 'Cleanliness',
+  guests : 'Guests',
+  location : 'Location',
+  noise : 'Noise Level',
+  size : 'Room Size',
+  wakeUpTime : 'Wake Up'
+}
+
 
 
 const MatchCard = ({profile, matchScore, self}) => {
@@ -33,15 +43,16 @@ const MatchCard = ({profile, matchScore, self}) => {
             <p className="card-text"><i>{profile.desc}</i></p>
           </div>
         </div>
-        <div className="dropdown m-0">
+        <div className="m-0">
           <button className="btn btn-light btn-sm dropdown-toggle" type="button" onClick={toggleHidden}></button>
-          <div id="matches-dropdown" className={isHidden ? 'hidden' : null}>
+          <div id="matches-dropdown" className={isHidden ? 'visually-hidden' : null}>
             <ul>
               {Object.entries(profile)
                   .filter(([field, _]) => !(field === "desc" | field === "fullName" | field === "gender" | field === "major" | field === "number" | field === "roommateGender" | field === "profilePhoto"))
-                  .map(([field, answer]) => <li>{field} : {answer}</li>)}
+                  .map(([field, answer]) => 
+                    <button key={field} className={(answer === self[field]) ? "btn btn-success m-2": "btn btn-danger m-2"}>{fieldMapping[field]}: {answer}</button>)}
             </ul>
-            <p><b>Contact {profile.fullName}: {profile.number}</b></p>
+            <p><b>Contact {profile.fullName}:</b> {profile.number}</p>
           </div>
         </div>
       </div>
