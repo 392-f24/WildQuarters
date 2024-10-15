@@ -1,4 +1,5 @@
 import MatchCard from './MatchCard'
+import './Matches.css'
 import { useDbData } from '../utilities/firebase';
 
 const checkStrictFilters = (self, other) => {
@@ -64,11 +65,11 @@ const Matches = () => {
     return (
         <div>
             <h1 className='text-center'>Potential Roommates</h1>
-            <p className='text-center'>Sorted by <i>Best Match</i></p>
+            <h2 className='text-center fs-6'>Sorted by <i>Best Match</i></h2>
             { Object.entries(roommates).map(([id, profile]) => {
                 const matchScore = calculateMatchScore(self, profile);
                 if (profile.fullName !== self.fullName && matchScore > 0) {
-                    return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
+                    return <MatchCard key={id} profile={profile} matchScore={matchScore} self={self} />;
                 }
             }) }
         </div>

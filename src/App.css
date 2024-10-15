@@ -4,3 +4,22 @@
     justify-content: center;
     justify-self: center;
 }
+
+.hidden {
+    display: none !important;
+}
+
+body {
+    background-color: #6c31af;
+}
+
+h1, h2 {
+    color: whitesmoke;
+    font-weight: bold;
+    display: block;
+    margin: 10px;
+}
+
+h1 {
+    text-align: center;
+}
