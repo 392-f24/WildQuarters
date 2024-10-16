@@ -3,7 +3,6 @@ form {
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    border: 1px solid #ddd;
     border-radius: 10px;
     background-color: #6c31af;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -12,10 +11,6 @@ form {
 /* Label Styling */
 
 form h1, h2 {
-    color: whitesmoke;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 10px;
     background-color: #411a6c;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
