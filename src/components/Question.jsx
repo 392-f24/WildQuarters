@@ -1,4 +1,4 @@
-import './PrefForm.css';
+import '../styles/PrefForm.css';
 import Answer from './Answer.jsx';
 
 

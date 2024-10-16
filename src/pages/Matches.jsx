@@ -1,4 +1,4 @@
-import MatchCard from './MatchCard'
+import MatchCard from '../components/MatchCard'
 import { useDbData } from '../utilities/firebase';
 
 const checkStrictFilters = (self, other) => {

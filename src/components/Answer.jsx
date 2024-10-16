@@ -1,4 +1,4 @@
-import './PrefForm.css';
+import '../styles/PrefForm.css';
 
 const Answer = (props) => {
 

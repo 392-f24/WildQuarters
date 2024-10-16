@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PrefForm from './PrefForm.jsx';
-import Matches from './Matches';
+import PrefForm from '../pages/PrefForm.jsx';
+import Matches from '../pages/Matches.jsx';
 
 const Dispatcher = () => {
     return (

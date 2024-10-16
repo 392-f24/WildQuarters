@@ -1,5 +1,5 @@
 import React from 'react'
-import './MatchCard.css'
+import '../styles/MatchCard.css'
 
 const MatchCard = ({profile, matchScore}) => (
     <div className="card m-1 p-2">
