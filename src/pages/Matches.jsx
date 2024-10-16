@@ -1,4 +1,5 @@
-import MatchCard from '../components/MatchCard'
+import MatchCard from '../components/MatchCard.jsx';
+import Navbar from '../components/Navbar.jsx'
 import { useDbData } from '../utilities/firebase';
 
 const checkStrictFilters = (self, other) => {
@@ -62,15 +63,18 @@ const Matches = () => {
     const self = roommates["Anya2"];
 
     return (
-        <div>
+        <div style={{overflowY: 'auto'}}>
             <h1 className='text-center'>Potential Roommates</h1>
             <p className='text-center'>Sorted by <i>Best Match</i></p>
-            { Object.entries(roommates).map(([id, profile]) => {
-                const matchScore = calculateMatchScore(self, profile);
-                if (profile.fullName !== self.fullName && matchScore > 0) {
-                    return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
-                }
-            }) }
+             <div>
+                { Object.entries(roommates).map(([id, profile]) => {
+                    const matchScore = calculateMatchScore(self, profile);
+                    if (profile.fullName !== self.fullName && matchScore > 0) {
+                        return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
+                    }
+                }) }
+            </div>
+            <Navbar/>
         </div>
     );
 };
