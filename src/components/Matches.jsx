@@ -1,5 +1,7 @@
 import MatchCard from './MatchCard'
 import { useDbData } from '../utilities/firebase';
+import testData from '../utilities/testData.json';
+import { useState } from 'react';
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;
@@ -38,7 +40,7 @@ const calculateMatchScore = (self, other) => {
     // Handle three option field
     if (self.noise === other.noise) {
         score += 1; 
-    } else if (Math.abs(self.noise - other.noise) === 1) {
+    } else if (self.noise === "Occasional" || other.noise === "Occasional") {
         score += 0.5; 
     }
 
@@ -58,19 +60,73 @@ const Matches = () => {
         return <div>Loading...</div>;
     }
 
+    // use test data in case data in database is not suitable at the moment
+    // comment out above lines
+    // const roommates = testData["roommateInfo"];
+
     // hardcoded for now, once user auth is implemented, get this automatically
     const self = roommates["Anya2"];
+
+    const [filterCategory, setFilterCategory] = useState("");
+    const filterMatches = (self, other) => {
+        if (!filterCategory) { return true; }
+        return self[filterCategory] === other[filterCategory];
+    };
+
+    const [sortMethod, setSortMethod] = useState("best");
+    const sortedMatches = Object.entries(roommates)
+    .map(([id, profile]) => ({ id, profile, matchScore: calculateMatchScore(self, profile) }))
+    .filter(({ profile, matchScore }) => self.fullName !== profile.fullName && matchScore > 0 && filterMatches(self, profile))
+    .sort((a, b) => {
+        if (sortMethod === "best") { return b.matchScore - a.matchScore }
+        else if (sortMethod === "worst") { return a.matchScore - b.matchScore };
+    });
 
     return (
         <div>
             <h1 className='text-center'>Potential Roommates</h1>
-            <p className='text-center'>Sorted by <i>Best Match</i></p>
-            { Object.entries(roommates).map(([id, profile]) => {
-                const matchScore = calculateMatchScore(self, profile);
-                if (profile.fullName !== self.fullName && matchScore > 0) {
-                    return <MatchCard key={id} profile={profile} matchScore={matchScore} />;
-                }
-            }) }
+
+            {/* Counter for number of results */}
+            <p className='text-center'><i>Showing {sortedMatches.length} {sortedMatches.length === 1 ? 'match' : 'matches'}</i></p>
+
+            {/* Filter by */}
+            <div className="dropdown-container text-center">
+                <label htmlFor="filter-dropdown">Filter by</label>
+                <select 
+                    id="filter-dropdown" 
+                    value={filterCategory} 
+                    onChange={(e) => setFilterCategory(e.target.value)}
+                >
+                    <option value="">Show All</option>
+                    <option value="wakeUpTime">Wake Up Time</option>
+                    <option value="bedTime">Bed Time</option>
+                    <option value="guests">Guests</option>
+                    <option value="clean">Cleanliness</option>
+                    <option value="noise">Noise</option>
+                    <option value="pets">Pets</option>
+                    <option value="alcohol">Alcohol</option>
+                    <option value="cigs">Cigarettes</option>
+                    <option value="weed">Weed</option>
+                </select>
+            </div>
+
+            {/* Sort by */}
+            <div className="dropdown-container text-center">
+                <label htmlFor="sort-dropdown">Sort by</label>
+                <select 
+                    id="sort-dropdown" 
+                    value={sortMethod} 
+                    onChange={(e) => setSortMethod(e.target.value)}
+                >
+                    <option value="best">Best Match</option>
+                    <option value="worst">Worst Match</option>
+                </select>
+            </div>
+
+            {/* Show sorted list of matches */}
+            { sortedMatches.map(({ id, profile, matchScore }) => (
+                <MatchCard key={id} profile={profile} matchScore={matchScore} />
+            )) }
         </div>
     );
 };

@@ -1,0 +1,302 @@
+{
+    "roommateInfo": {
+      "Anya2": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "1234",
+        "fullName": "Anya2",
+        "gender": "Female",
+        "guests": "Yes",
+        "location": "South",
+        "major": "CS",
+        "noise": "Quiet",
+        "number": "1234",
+        "roommateGender": [
+          "Any",
+          "Female",
+          "Non-binary"
+        ],
+        "size": [
+          "Double",
+          "Triple",
+          "Suite"
+        ],
+        "wakeUpTime": "8-10 AM"
+      },
+      "Anya3": {
+        "bedTime": "Late",
+        "clean": "Messy",
+        "desc": "123",
+        "fullName": "Anya3",
+        "gender": "Male",
+        "guests": "Yes",
+        "location": "North",
+        "major": "fs",
+        "noise": "Fine with noises",
+        "number": "12",
+        "roommateGender": [
+          "Male",
+          "Female",
+          "Non-binary",
+          "Any"
+        ],
+        "size": [
+          "Double",
+          "Triple",
+          "Suite"
+        ],
+        "wakeUpTime": "10AM-12PM"
+      },
+      "Anya4": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "a",
+        "fullName": "Anya4",
+        "gender": "Non-binary",
+        "guests": "No",
+        "location": "South",
+        "major": "a",
+        "noise": "Quiet",
+        "number": "a",
+        "roommateGender": [
+          "Male",
+          "Female",
+          "Non-binary",
+          "Any"
+        ],
+        "size": [
+          "Double",
+          "Triple",
+          "Suite"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "Levy Deckard": {
+        "bedTime": "Early",
+        "clean": "Clean",
+        "desc": "Hehehe clickin buttons",
+        "fullName": "Levy Deckard",
+        "gender": "Male",
+        "guests": "Yes",
+        "location": "North",
+        "major": "Computer Whatever",
+        "noise": "Occasional",
+        "number": "1234567890",
+        "roommateGender": [
+          "Male"
+        ],
+        "size": [
+          "Double"
+        ],
+        "wakeUpTime": "8-10 AM"
+      },
+      "Michael2": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "asf",
+        "fullName": "Michael2",
+        "gender": "Female",
+        "guests": "No",
+        "location": "North",
+        "major": "ac",
+        "noise": "Quiet",
+        "number": "123",
+        "profilePhoto": "",
+        "roommateGender": [
+          "Male",
+          "Any"
+        ],
+        "size": [
+          "Double"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "Tina": {
+        "bedTime": "Early",
+        "clean": "Clean",
+        "desc": "test test test",
+        "fullName": "Tina",
+        "gender": "Female",
+        "guests": "Yes",
+        "location": "North",
+        "major": "Sociology",
+        "noise": "Occasional",
+        "number": "4932709414",
+        "roommateGender": [
+          "Any"
+        ],
+        "size": [
+          "Double"
+        ],
+        "wakeUpTime": "8-10 AM"
+      },
+      "ellie": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "dsv",
+        "fullName": "ellie",
+        "gender": "Female",
+        "guests": "Yes",
+        "location": "North",
+        "major": "dfs",
+        "noise": "Occasional",
+        "number": "2342",
+        "profilePhoto": "https://firebasestorage.googleapis.com/v0/b/wildquarters-nu.appspot.com/o/profilePhotos%2Fellie?alt=media&token=84725a15-3f0a-447a-88a3-b808cbbe4616",
+        "roommateGender": [
+          "Female"
+        ],
+        "size": [
+          "Suite"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "ellie1": {
+        "bedTime": "Late",
+        "clean": "Messy",
+        "desc": "scscs",
+        "fullName": "ellie1",
+        "gender": "Female",
+        "guests": "No",
+        "location": "North",
+        "major": "cs",
+        "noise": "Occasional",
+        "number": "123",
+        "profilePhoto": "",
+        "roommateGender": [
+          "Male"
+        ],
+        "size": [
+          "Triple"
+        ],
+        "wakeUpTime": "8-10 AM"
+      },
+      "ellieL": {
+        "bedTime": "Late",
+        "clean": "Clean",
+        "desc": "dffsdf",
+        "fullName": "ellieL",
+        "gender": "Female",
+        "guests": "No",
+        "location": "North",
+        "major": "cs",
+        "noise": "Quiet",
+        "number": "122343",
+        "profilePhoto": "https://firebasestorage.googleapis.com/v0/b/wildquarters-nu.appspot.com/o/profilePhotos%2FellieL?alt=media&token=fd8f9a86-5894-404d-91d0-865cd401b3aa",
+        "roommateGender": [
+          "Male",
+          "Female",
+          "Non-binary",
+          "Any"
+        ],
+        "size": [
+          "Double"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "elliefsd": {
+        "bedTime": "Late",
+        "clean": "Messy",
+        "desc": "sfd",
+        "fullName": "elliefsd",
+        "gender": "Female",
+        "guests": "Yes",
+        "location": "North",
+        "major": "dsf",
+        "noise": "Occasional",
+        "number": "324",
+        "profilePhoto": "https://firebasestorage.googleapis.com/v0/b/wildquarters-nu.appspot.com/o/profilePhotos%2Felliefsd?alt=media&token=9d0014d5-97b6-46cf-ab3f-d3098555f060",
+        "roommateGender": [
+          "Male"
+        ],
+        "size": [
+          "Suite"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "michael5": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "asdf",
+        "fullName": "michael5",
+        "gender": "Female",
+        "guests": "Yes",
+        "location": "North",
+        "major": "cs",
+        "noise": "Quiet",
+        "number": "asdf",
+        "profilePhoto": "",
+        "roommateGender": [
+          "Male",
+          "Any"
+        ],
+        "size": [
+          "Triple"
+        ],
+        "wakeUpTime": "10AM-12PM"
+      },
+      "sd": {
+        "bedTime": "Late",
+        "clean": "Clean",
+        "desc": "dfs",
+        "fullName": "sd",
+        "gender": "Female",
+        "guests": "No",
+        "location": "North",
+        "major": "ds",
+        "noise": "Occasional",
+        "number": "fsd",
+        "profilePhoto": "https://firebasestorage.googleapis.com/v0/b/wildquarters-nu.appspot.com/o/profilePhotos%2Fsd?alt=media&token=dfeb3e38-40fd-4ba1-a40c-9930fdde1d7c",
+        "roommateGender": [
+          "Non-binary"
+        ],
+        "size": [
+          "Triple"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "testing": {
+        "bedTime": "Early",
+        "clean": "Messy",
+        "desc": "asd",
+        "fullName": "testing",
+        "gender": "Male",
+        "guests": "Yes",
+        "location": "North",
+        "major": "testing",
+        "noise": "Quiet",
+        "number": "1234",
+        "roommateGender": [
+          "Male",
+          "Female",
+          "Non-binary",
+          "Any"
+        ],
+        "size": [
+          "Double",
+          "Suite",
+          "Triple"
+        ],
+        "wakeUpTime": "6-8 AM"
+      },
+      "testo": {
+        "bedTime": "Late",
+        "clean": "Messy",
+        "desc": "dsf",
+        "fullName": "testo",
+        "gender": "Male",
+        "guests": "Yes",
+        "location": "South",
+        "major": "df",
+        "noise": "Occasional",
+        "number": "123",
+        "profilePhoto": "https://firebasestorage.googleapis.com/v0/b/wildquarters-nu.appspot.com/o/profilePhotos%2Ftesto?alt=media&token=2b052ac0-9ca5-408c-ab25-1bc2ba24b866",
+        "roommateGender": [
+          "Non-binary"
+        ],
+        "size": [
+          "Triple"
+        ],
+        "wakeUpTime": "6-8 AM"
+      }
+    }
+  }
