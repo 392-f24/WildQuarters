@@ -23,7 +23,6 @@ const Profile = () =>  {
                             </div>)
                         })
 
-    console.log(self);
     
     const imgUrl = 'https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg?size=338&ext=jpg&ga=GA1.1.2113030492.1728950400&semt=ais_hybrid';
 
@@ -31,7 +30,7 @@ const Profile = () =>  {
     <div className="profile-container">
         <div className="profile-header">
             <p className="profile-title">Profile</p>
-            <Link className="edit-link" to="/">
+            <Link className="edit-link" to="/pref/edit">
                 <p className="profile-title">Edit</p>
             </Link>
         </div>
