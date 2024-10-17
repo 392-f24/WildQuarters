@@ -1,5 +1,5 @@
-import './PrefForm.css';
-import Question from './Question.jsx';
+import '../styles/PrefForm.css';
+import Question from '../components/Question.jsx';
 import { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { useDbUpdate, useStorageUpload } from '../utilities/firebase';

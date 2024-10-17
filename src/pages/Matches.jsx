@@ -1,7 +1,6 @@
-import MatchCard from './MatchCard'
+import MatchCard from '../components/MatchCard'
 import { useState } from 'react';
-import './Matches.css'
-import { useDbData } from '../utilities/firebase';
+import '../styles/Matches.css'
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;

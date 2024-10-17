@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PrefForm from './PrefForm.jsx';
-import Matches from './Matches';
+import PrefForm from '../pages/PrefForm.jsx';
+import Matches from '../pages/Matches';
 import { useDbData } from '../utilities/firebase';
 import testData from '../utilities/testData.json';
 
