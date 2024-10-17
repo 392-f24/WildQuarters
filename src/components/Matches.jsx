@@ -59,7 +59,7 @@ const Matches = () => {
 
     // Simulating the logged-in user's data; you will need to replace this with actual data
     const self = roommates["Anya2"];
-
+    
     // Logout function
     const handleLogout = async () => {
         try {
@@ -69,7 +69,7 @@ const Matches = () => {
             console.error("Error logging out: ", error);
         }
     };
-
+    
     return (
         <div>
             <h1 className='text-center'>Potential Roommates</h1>

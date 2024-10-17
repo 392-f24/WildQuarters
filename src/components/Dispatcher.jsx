@@ -37,11 +37,7 @@ const Dispatcher = () => {
     useEffect(() => {
         if (!loading) {
             if (user) {
-                if (formCompleted) {
-                    navigate("/matches");
-                } else {
-                    navigate("/pref-form");
-                }
+                navigate("/matches");
             } else {
                 navigate("/"); // Navigate to login if no user
             }
