@@ -1,5 +1,10 @@
 import MatchCard from './MatchCard'
+<<<<<<< HEAD
 import { useState } from 'react';
+=======
+import './Matches.css'
+import { useDbData } from '../utilities/firebase';
+>>>>>>> cb4028a9c9c7c83816416167c99df898925701e1
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;
@@ -70,6 +75,7 @@ const Matches = ({roommates}) => {
     return (
         <div>
             <h1 className='text-center'>Potential Roommates</h1>
+<<<<<<< HEAD
 
             {/* Counter for number of results */}
             <p className='text-center'><i>Showing {sortedMatches.length} {sortedMatches.length === 1 ? 'match' : 'matches'}</i></p>
@@ -112,6 +118,15 @@ const Matches = ({roommates}) => {
             { sortedMatches.map(({ id, profile, matchScore }) => (
                 <MatchCard key={id} profile={profile} matchScore={matchScore} />
             )) }
+=======
+            <h2 className='text-center fs-6'>Sorted by <i>Best Match</i></h2>
+            { Object.entries(roommates).map(([id, profile]) => {
+                const matchScore = calculateMatchScore(self, profile);
+                if (profile.fullName !== self.fullName && matchScore > 0) {
+                    return <MatchCard key={id} profile={profile} matchScore={matchScore} self={self} />;
+                }
+            }) }
+>>>>>>> cb4028a9c9c7c83816416167c99df898925701e1
         </div>
     );
 };
