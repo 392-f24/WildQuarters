@@ -28,17 +28,9 @@ const MatchCard = ({profile, matchScore, self}) => {
 
   return (
     <div className="card m-1 p-2">
-<<<<<<< HEAD
-      <div className="d-flex align-items-start">
-        <img src={profile.profilePhoto} className="img-fluid me-3" alt={profile.desc} style={{width: "20vw", height: "20vw", objectFit: "cover"}}/>
-        <div className='d-flex flex-column flex-grow-1'>
-          <div className="d-flex justify-content-between align-items-center mb-2">
-            <h5 className="card-title mb-0">{profile.fullName}</h5>
-            <p className="card-text mb-0"><b>{matchScore}/9</b></p>
-=======
       <div className="d-flex flex-column">
         <div className="d-flex align-items-start">
-          <img src={profile.photo} className="img-fluid me-3" alt={profile.desc} style={{width: "20vw", height: "20vw", objectFit: "cover"}}/>
+          <img src={profile.profilePhoto} className="img-fluid me-3" alt={profile.desc} style={{width: "20vw", height: "20vw", objectFit: "cover"}}/>
           <div className='d-flex flex-column flex-grow-1'>
             <div className="d-flex justify-content-between align-items-center mb-2">
               <div className="d-flex">
@@ -61,7 +53,6 @@ const MatchCard = ({profile, matchScore, self}) => {
                     <button key={field} className={(answer === self[field]) ? "btn btn-success m-2": "btn btn-danger m-2"}>{fieldMapping[field]}: {answer}</button>)}
             </ul>
             <p><b>Contact {profile.fullName}:</b> {profile.number}</p>
->>>>>>> cb4028a9c9c7c83816416167c99df898925701e1
           </div>
         </div>
       </div>
