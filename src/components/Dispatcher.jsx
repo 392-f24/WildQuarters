@@ -1,8 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import PrefForm from '../pages/PrefForm.jsx';
-import Matches from '../pages/Matches';
+import Matches from '../pages/Matches.jsx';
+import ProfilePage from '../pages/ProfilePage.jsx';
 import { useDbData } from '../utilities/firebase';
-import testData from '../utilities/testData.json';
+
 
 const Dispatcher = () => {
     const [roommates, error] = useDbData('/roommateInfo');
@@ -18,6 +19,7 @@ const Dispatcher = () => {
             <Routes>
                 <Route path="/" element={<PrefForm/>} />
                 <Route path="/matches" element={<Matches roommates={roommates} />} />
+                <Route path="/profile" element={<ProfilePage />} />
             </Routes>
         </BrowserRouter>
     );
