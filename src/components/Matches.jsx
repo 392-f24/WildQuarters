@@ -1,6 +1,4 @@
 import MatchCard from './MatchCard'
-import { useDbData } from '../utilities/firebase';
-import testData from '../utilities/testData.json';
 import { useState } from 'react';
 
 const checkStrictFilters = (self, other) => {
@@ -49,20 +47,7 @@ const calculateMatchScore = (self, other) => {
 
 
 
-const Matches = () => {
-    const [roommates, error] = useDbData('/roommateInfo');
-
-    if (error) {
-        return <div>Error loading data: {error.message}</div>;
-    }
-
-    if (!roommates) {
-        return <div>Loading...</div>;
-    }
-
-    // use test data in case data in database is not suitable at the moment
-    // comment out above lines
-    // const roommates = testData["roommateInfo"];
+const Matches = ({roommates}) => {    
 
     // hardcoded for now, once user auth is implemented, get this automatically
     const self = roommates["Anya2"];
