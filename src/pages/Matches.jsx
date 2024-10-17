@@ -1,7 +1,8 @@
-import MatchCard from './MatchCard'
+import MatchCard from '../components/MatchCard';
+import Navbar from '../components/Navbar';
 import { useState } from 'react';
-import './Matches.css'
-import { useDbData } from '../utilities/firebase';
+import '../styles/Matches.css'
+
 
 const checkStrictFilters = (self, other) => {
     // if (self.housing !== other.housing) return false;
@@ -114,6 +115,8 @@ const Matches = ({roommates}) => {
             { sortedMatches.map(({ id, profile, matchScore }) => (
                 <MatchCard key={id} profile={profile} matchScore={matchScore} self={self} />
             )) }
+
+            <Navbar/>
         </div>
     );
 };

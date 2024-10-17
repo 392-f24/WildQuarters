@@ -1,0 +1,21 @@
+.navbar-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+}
+
+.navbar-icon {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+}
+
+p {
+    color: purple;
+}

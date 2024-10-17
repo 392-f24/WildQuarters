@@ -1,29 +1,13 @@
-import './PrefForm.css';
-import Question from './Question.jsx';
+import '../styles/PrefForm.css';
+import Question from '../components/Question.jsx';
 import { useState } from 'react'; 
 import { useNavigate } from 'react-router-dom';
 import { useDbUpdate, useStorageUpload } from '../utilities/firebase';
 
-const PrefForm = () => {
+const PrefForm = ({roommates}) => {
   const navigate = useNavigate();
 
-  const [data, setData] = useState({
-    fullName: '',
-    major: '',
-    number: '',
-    desc: '',
-    gender: '',
-    roommateGender: [],
-    location: '',
-    size: [],
-    wakeUpTime: '',
-    bedTime: '',
-    guests: '',
-    clean: '',
-    noise: '',
-    profilePhoto: null,
-  });
-
+  const [data, setData] = useState(roommates["Levy Deckard"]);
   const [errors, setErrors] = useState({});
 
   const requiredFields = [
