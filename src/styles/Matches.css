@@ -1,0 +1,9 @@
+p, label {
+    color: white;
+    padding: 3px;
+}
+
+.card p {
+    color : black;
+    padding: 0px;
+}
