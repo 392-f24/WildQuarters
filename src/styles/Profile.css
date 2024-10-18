@@ -44,6 +44,10 @@
     font-size: x-large;
 }
 
+h3 {
+    color: white;
+}
+
 .profile-picture {
     border-radius: 50%;
     object-fit: contain;        

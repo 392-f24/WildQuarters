@@ -22,7 +22,10 @@ const Profile = () =>  {
         location : 'Location',
         noise : 'Noise Level',
         size : 'Room Size',
-        wakeUpTime : 'Wake Up'
+        wakeUpTime : 'Wake Up',
+        gender : 'Gender',
+        major : 'Major',
+        roommateGender : 'Roommate Gender'
       }
 
     const self = roommates["Chris Riesbeck"];
@@ -30,7 +33,7 @@ const Profile = () =>  {
                         .map(([key, val]) => {
                             return key ==='fullName' || key === 'desc' || key === 'number' || key === 'profilePhoto' ? null : 
                             (<div key={key} className="pref">
-                                {typeof val === 'string' ? `${fieldMapping[key]} : ${val}` : `${key} : ${val.join(',')}`}
+                                {typeof val === 'string' ? `${fieldMapping[key]} : ${val}` : `${fieldMapping[key]} : ${val.join(',')}`}
                             </div>)
                         })
 
@@ -54,6 +57,7 @@ const Profile = () =>  {
         <div className="pref-container">
             <p>Preferences</p>
             {pref}
+            <br></br>
         </div>
     </div>);
 
