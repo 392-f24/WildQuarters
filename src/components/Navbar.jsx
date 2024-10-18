@@ -7,7 +7,7 @@ const Navbar = () => {
 
             <NavLink className="navbar-icon" to="/matches">
                 <i className="bi bi-heart-fill" style={{ color: 'purple' }}></i>
-                <p>Matches</p>
+                <p><b>Matches</b></p>
             </NavLink>
 
             {/* <NavLink className="navbar-icon">
@@ -17,7 +17,7 @@ const Navbar = () => {
 
             <NavLink className="navbar-icon" to="/profile">
                 <i className="bi bi-person-circle" style={{ color: 'purple' }}></i>
-                <p>Profile</p>
+                <p><b>Profile</b></p>
             </NavLink>
 
         </nav>

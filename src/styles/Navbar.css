@@ -6,6 +6,7 @@
     bottom: 0px;
     left: 0px;
     right: 0px;
+    background-color: #411a6c;
 
 }
 
@@ -16,6 +17,6 @@
     align-items: center;
 }
 
-p {
-    color: purple;
+.navbar-container p {
+    color :white;
 }

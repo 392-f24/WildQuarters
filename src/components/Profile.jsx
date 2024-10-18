@@ -15,12 +15,22 @@ const Profile = () =>  {
         return <div>Loading...</div>;
     }
 
+    const fieldMapping = {
+        bedTime : 'Bedtime',
+        clean : 'Cleanliness',
+        guests : 'Guests',
+        location : 'Location',
+        noise : 'Noise Level',
+        size : 'Room Size',
+        wakeUpTime : 'Wake Up'
+      }
+
     const self = roommates["Chris Riesbeck"];
     const pref = Object.entries(self)
                         .map(([key, val]) => {
                             return key ==='fullName' || key === 'desc' || key === 'number' || key === 'profilePhoto' ? null : 
                             (<div key={key} className="pref">
-                                {typeof val === 'string' ? `${key} : ${val}` : `${key} : ${val.join(',')}`}
+                                {typeof val === 'string' ? `${fieldMapping[key]} : ${val}` : `${key} : ${val.join(',')}`}
                             </div>)
                         })
 
@@ -42,7 +52,7 @@ const Profile = () =>  {
         <SignOutButton />
 
         <div className="pref-container">
-            <p style={{color : 'black'}}>Preferences</p>
+            <p>Preferences</p>
             {pref}
         </div>
     </div>);

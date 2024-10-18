@@ -7,6 +7,11 @@
     justify-content: center; 
 }
 
+.profile-container p {
+    color : white;
+    font-weight: bolder;
+}
+
 .pref-container {
     display: flex;
     flex-direction: column;
@@ -18,9 +23,11 @@
 
 .pref {
     margin-bottom: 1rem;
-    border: solid purple;
+    border: solid #411a6c;
     padding: 5px 10px;
     border-radius: 5%;
+    background-color: #411a6c;
+    color: white;
 }
 
 .profile-header {
@@ -33,7 +40,7 @@
 }
 
 .profile-title {
-    color: black;
+    color: white;
     font-size: x-large;
 }
 
