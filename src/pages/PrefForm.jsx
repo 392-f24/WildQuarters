@@ -91,6 +91,26 @@ const PrefForm = () => {
     }
   };
 
+  // DEMO ONLY fields
+  const demoAutoFill = () => {
+    setData({
+      fullName: 'Chris Riesbeck',
+      major: 'Computer Science',
+      number: '1234567890',
+      desc: "I'm an agile type of guy",
+      gender: 'Male',
+      roommateGender: ['Any'],
+      location: 'North',
+      size: ['Double', 'Triple', 'Suite'],
+      wakeUpTime: '6-8 AM',
+      bedTime: 'Early',
+      guests: 'No',
+      clean: 'Clean',
+      noise: 'Quiet',
+      profilePhoto: null, // Optionally add a default file here if needed
+    });
+  };
+
   const submit = async (evt) => {
     evt.preventDefault();
 
@@ -262,6 +282,7 @@ const PrefForm = () => {
       />
 
       <button type="submit" className={isComplete ? '' : 'disabled-button'}>Submit</button>
+      <button type="button" onClick={demoAutoFill} className="demo-button">(DEMO ONLY)</button>
     </form>
   );
 };

@@ -2,6 +2,7 @@ import MatchCard from '../components/MatchCard';
 import Navbar from '../components/Navbar';
 import { useState } from 'react';
 import '../styles/Matches.css'
+import { useAuthState } from '../utilities/firebase';
 
 
 const checkStrictFilters = (self, other) => {
@@ -51,17 +52,27 @@ const calculateMatchScore = (self, other) => {
 
 
 const Matches = ({roommates}) => {    
-
-    // hardcoded for now, once user auth is implemented, get this automatically
-    const self = roommates["Anya2"];
-
+    const [user, loading] = useAuthState();
     const [filterCategory, setFilterCategory] = useState("");
+    const [sortMethod, setSortMethod] = useState("best");
+
+    if (loading) {
+        return <div>Loading...</div>
+    }
+
+    // const self = roommates[user.displayName];
+    const self = roommates["Chris Riesbeck"];
+    console.log(user);
+    if (!self) {
+        console.log("User not found in roommatesInfo...");
+        return <div>User not found...</div>
+    }
+
     const filterMatches = (self, other) => {
         if (!filterCategory) { return true; }
         return self[filterCategory] === other[filterCategory];
     };
 
-    const [sortMethod, setSortMethod] = useState("best");
     const sortedMatches = Object.entries(roommates)
     .map(([id, profile]) => ({ id, profile, matchScore: calculateMatchScore(self, profile) }))
     .filter(({ profile, matchScore }) => self.fullName !== profile.fullName && matchScore > 0 && filterMatches(self, profile))

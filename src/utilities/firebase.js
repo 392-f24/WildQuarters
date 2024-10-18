@@ -5,7 +5,8 @@ import { initializeApp } from "firebase/app";
 //so they were overwriting other. so if we rename them that can fix it
 import { getDatabase, onValue, ref as databaseRef, update } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getAuth, signInAnonymously } from 'firebase/auth'; // AUTH STUFF
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, getAdditionalUserInfo } from 'firebase/auth'; // AUTH STUFF
+
 
 
 // Your web app's Firebase configuration
@@ -25,14 +26,63 @@ const database = getDatabase(firebase);
 const storage = getStorage(firebase);
 const auth = getAuth(firebase); // AUTH STUFF
 
-// Sign in anonymously
-signInAnonymously(auth)
-  .then(() => {
-    console.log('Signed in anonymously');
+export const signInWithGoogle = async (navigate) => {
+  const provider = new GoogleAuthProvider();
+
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user; // Get signed-in user
+    const isNewUser = getAdditionalUserInfo(result).isNewUser;
+
+    if (isNewUser) {
+      console.log("New user, welcome!");
+      navigate("/pref")
+    } else {
+      console.log("Returning user, welcome back!");
+      navigate("/matches")
+    }
+  } catch (error) {
+    console.error("Error signing in with Google: ", error);
+  }
+};
+
+const firebaseSignOut = (navigate) => {
+  signOut(auth).then(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        navigate("/");
+      }
+    });
+  }).catch((error) => {
+    console.error("Error signing out: ", error);
   })
-  .catch((error) => {
-    console.error('Error signing in anonymously:', error.code, error.message);
-  });
+};
+
+export { firebaseSignOut as signOut };
+export const useAuthState = () => {
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const auth = getAuth(firebase);
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setUser(user);
+      setLoading(false);
+    })
+    return () => unsubscribe();
+}, []);
+
+  return [user, loading];
+};
+
+// // Sign in anonymously
+// signInAnonymously(auth)
+//   .then(() => {
+//     console.log('Signed in anonymously');
+//   })
+//   .catch((error) => {
+//     console.error('Error signing in anonymously:', error.code, error.message);
+//   });
 
 
 export const useDbData = (path) => {
@@ -76,6 +126,14 @@ export const useStorageUpload = (storagePath) => {
     setUploading(true);
     setError(null);
 
+    if (!file) {
+      console.log("nualsdfj")
+      const hardcodedURL = 'https://www.markdarnelldds.com/wp-content/uploads/2017/01/profile-silhouette.jpg';
+      setFileURL(hardcodedURL);
+      setUploading(false);
+      return { ref: null, url: hardcodedURL };
+    }
+
     try {
       const storageReference = storageRef(storage, storagePath);
       const snapshot = await uploadBytes(storageReference, file);
@@ -90,6 +148,8 @@ export const useStorageUpload = (storagePath) => {
       console.error('Upload failed:', err);
     }
   };
+
+  console.log(fileURL);
 
   return [upload, uploading, fileURL, error];
 };

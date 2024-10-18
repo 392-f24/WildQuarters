@@ -1,6 +1,7 @@
 import '../styles/Profile.css';
 import { useDbData } from '../utilities/firebase';
 import { Link } from 'react-router-dom';
+import SignOutButton from './SignOutButton';
 
 
 const Profile = () =>  {
@@ -14,10 +15,10 @@ const Profile = () =>  {
         return <div>Loading...</div>;
     }
 
-    const self = roommates["Levy Deckard"];
+    const self = roommates["Chris Riesbeck"];
     const pref = Object.entries(self)
                         .map(([key, val]) => {
-                            return key ==='fullName' || key === 'desc' || key === 'number' ? null : 
+                            return key ==='fullName' || key === 'desc' || key === 'number' || key === 'profilePhoto' ? null : 
                             (<div key={key} className="pref">
                                 {typeof val === 'string' ? `${key} : ${val}` : `${key} : ${val.join(',')}`}
                             </div>)
@@ -35,8 +36,10 @@ const Profile = () =>  {
             </Link>
         </div>
 
-        <img className="profile-picture" src={imgUrl} />
+        <img className="profile-picture" src={self.profilePhoto} />
         <h3>{self.fullName}</h3>
+
+        <SignOutButton />
 
         <div className="pref-container">
             <p style={{color : 'black'}}>Preferences</p>

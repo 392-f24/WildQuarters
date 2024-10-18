@@ -7,7 +7,7 @@ import { useDbUpdate, useStorageUpload } from '../utilities/firebase';
 const PrefForm = ({roommates}) => {
   const navigate = useNavigate();
 
-  const [data, setData] = useState(roommates["Levy Deckard"]);
+  const [data, setData] = useState(roommates["Chris Riesbeck"]);
   const [errors, setErrors] = useState({});
 
   const requiredFields = [

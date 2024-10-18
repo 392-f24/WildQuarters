@@ -5,8 +5,8 @@ import Profile from '../components/Profile.jsx';
 const ProfilePage = () => {
     return (
         <>
-            <Profile></Profile>
-            <Navbar></Navbar>
+            <Profile />
+            <Navbar />
         </> 
     )
 }

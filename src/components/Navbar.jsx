@@ -10,10 +10,10 @@ const Navbar = () => {
                 <p>Matches</p>
             </NavLink>
 
-            <NavLink className="navbar-icon">
+            {/* <NavLink className="navbar-icon">
                 <i className="bi bi-chat" style={{ color: 'purple' }}></i>
                 <p>Chat</p>
-            </NavLink>
+            </NavLink> */}
 
             <NavLink className="navbar-icon" to="/profile">
                 <i className="bi bi-person-circle" style={{ color: 'purple' }}></i>
