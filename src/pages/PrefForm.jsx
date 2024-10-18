@@ -29,7 +29,7 @@ const PrefForm = () => {
   const requiredFields = [
     'fullName', 'major', 'number', 'desc', 'gender',
     'roommateGender', 'location', 'size', 'wakeUpTime',
-    'bedTime', 'guests', 'clean', 'noise', 'profilePhoto'
+    'bedTime', 'guests', 'clean', 'noise'
   ];
 
   const validateForm = () => {
