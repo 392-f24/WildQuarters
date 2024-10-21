@@ -38,7 +38,7 @@ const Profile = () =>  {
                         })
 
 
-    const imgUrl = 'https://img.freepik.com/free-photo/portrait-man-laughing_23-2148859448.jpg?size=338&ext=jpg&ga=GA1.1.2113030492.1728950400&semt=ais_hybrid';
+    const imgUrl = 'https://www.mccormick.northwestern.edu/images/research-and-faculty/directory/riesbeck-chris.jpg';
 
     return (
     <div className="profile-container">
@@ -49,7 +49,7 @@ const Profile = () =>  {
             </Link>
         </div>
 
-        <img className="profile-picture" src={self.profilePhoto} />
+        <img className="profile-picture" src={self.profilePhoto ? self.profilePhoto : imgUrl} />
         <h3>{self.fullName}</h3>
 
         <SignOutButton />

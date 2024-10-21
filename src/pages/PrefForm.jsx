@@ -121,6 +121,8 @@ const PrefForm = () => {
 
     let photoURL = '';
     if (data.profilePhoto) {
+      console.log("photo detected?")
+      console.log(data.profilePhoto)
       try {
         const uploadedPhoto = await upload(data.profilePhoto);
         console.log('Uploaded Photo:', uploadedPhoto);

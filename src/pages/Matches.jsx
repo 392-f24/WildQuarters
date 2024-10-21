@@ -26,7 +26,7 @@ const calculateMatchScore = (self, other) => {
         { field: "bedTime", exact: true },
         { field: "guests", exact: true },
         { field: "clean", exact: true },
-        { field: "noise", extact: true }
+        { field: "location", exact: true }
     ];
 
     // Loop through binary fields
@@ -58,7 +58,7 @@ const Matches = ({roommates}) => {
     }
 
     // const self = roommates[user.displayName];
-    const self = roommates["Levy Deckard"];
+    const self = roommates["Chris Riesbeck"];
     console.log(user);
     if (!self) {
         console.log("User not found in roommatesInfo...");
