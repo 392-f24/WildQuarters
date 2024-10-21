@@ -52,7 +52,14 @@ const MatchCard = ({profile, matchScore, self}) => {
               {Object.entries(profile)
                   .filter(([field, _]) => !(field === "desc" | field === "fullName" | field === "gender" | field === "major" | field === "number" | field === "roommateGender" | field === "profilePhoto"))
                   .map(([field, answer]) => 
-                    <button key={field} className={(answer === self[field]) ? "btn btn-success m-2": "btn btn-danger m-2"}>{fieldMapping[field]}: {answer}</button>)}
+                    <button key={field} className={
+                      field === "noise"
+                      ? (answer === self[field]
+                        ? "btn btn-success m-2"
+                        : (self[field] === "Occasional" || answer === "Occasional" ? "btn btn-warning m-2" : "btn btn-danger m-2")
+                      )
+                      : (answer === self[field] ? "btn btn-success m-2" : "btn btn-danger m-2")
+                    }>{fieldMapping[field]}: {answer}</button>)}
             </ul>
             <p><b>Contact {profile.fullName}:</b> {profile.number}</p>
           </div>
