@@ -1,19 +1,28 @@
-import {describe, expect, test} from 'vitest';
+import {describe, expect, test, vi, it} from 'vitest';
 import {fireEvent, render, screen} from '@testing-library/react';
 import App from './App';
+import MatchCard from './components/MatchCard';
 
-describe('counter tests', () => {
-    
-  test("Counter should be 0 at the start", () => {
-    render(<App />);
-    expect(screen.getByText('count is: 0')).toBeDefined();
-  });
+const mockProfile = {
+  fullName : "Tester",
+  gender : "Female",
+  major : "CS",
+  desc : "",
+  number : "1234567890"
+}
 
-  test("Counter should increment by one when clicked", async () => {
-    render(<App />);
-    const counter = screen.getByRole('button');
-    fireEvent.click(counter);
-    expect(await screen.getByText('count is: 1')).toBeDefined();
-  });
+describe('dropdowns', () => {
+it('should open and close', async () => {
+  render(<MatchCard profile={mockProfile} matchScore={6} self={mockProfile} />);
+  const button = await screen.findByLabelText('dropdown-button');
+  const info = await screen.findByLabelText('dropdown-info');
 
-});
+
+  expect(info.className).toBe('visually-hidden');
+  fireEvent.click(button);
+  expect(info.className).not.toBe('visually-hidden');
+  fireEvent.click(button);
+  expect(info.className).toBe('visually-hidden');
+
+})
+})

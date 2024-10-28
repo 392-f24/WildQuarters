@@ -46,8 +46,8 @@ const MatchCard = ({profile, matchScore, self}) => {
           </div>
         </div>
         <div className="m-0">
-          <button className="btn btn-light btn-sm dropdown-toggle" type="button" onClick={toggleHidden}></button>
-          <div id="matches-dropdown" className={isHidden ? 'visually-hidden' : null}>
+          <button className="btn btn-light btn-sm dropdown-toggle" aria-label="dropdown-button" type="button" onClick={toggleHidden}></button>
+          <div id="matches-dropdown" aria-label='dropdown-info' className={isHidden ? 'visually-hidden' : null}>
             <ul>
               {Object.entries(profile)
                   .filter(([field, _]) => !(field === "desc" | field === "fullName" | field === "gender" | field === "major" | field === "number" | field === "roommateGender" | field === "profilePhoto"))
