@@ -15,7 +15,7 @@ const Navbar = () => {
                 <p>Chat</p>
             </NavLink> */}
 
-            <NavLink className="navbar-icon" to="/profile">
+            <NavLink data-testid="profile-icon" className="navbar-icon" to="/profile">
                 <i className="bi bi-person-circle" style={{ color: 'purple' }}></i>
                 <p><b>Profile</b></p>
             </NavLink>
