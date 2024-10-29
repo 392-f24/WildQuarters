@@ -1,6 +1,6 @@
 import {describe, expect, test, vi, it} from 'vitest';
 import {fireEvent, render, screen} from '@testing-library/react';
-import MatchCard from './MatchCard';
+import MatchCard from '../components/MatchCard';
 
 const mockProfile = {
     fullName : "Tester",

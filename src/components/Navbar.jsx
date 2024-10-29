@@ -5,7 +5,7 @@ const Navbar = () => {
     return (
         <nav className="navbar-container">
 
-            <NavLink className="navbar-icon" to="/matches">
+            <NavLink data-testid="heart-icon" className="navbar-icon" to="/matches">
                 <i className="bi bi-heart-fill" style={{ color: 'purple' }}></i>
                 <p><b>Matches</b></p>
             </NavLink>

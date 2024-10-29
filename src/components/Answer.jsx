@@ -7,6 +7,7 @@ const Answer = (props) => {
     return (<div className="form-check">
             <input 
             type={props.type}
+            data-testid={props.answer}
             className="form-check-input"
             id = {answerId}
             name={props.name}
