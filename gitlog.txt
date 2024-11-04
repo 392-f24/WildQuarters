@@ -1,0 +1,659 @@
+commit 2e8ed9e63e0772c328568509a3a8d68152f25ba9
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Mon Oct 28 21:41:03 2024 -0500
+
+    Working second test
+
+M	src/components/Navbar.jsx
+A	src/tests/Navbar.test.jsx
+
+commit 925c5a7329f32bd868a38751ee9a234cea43a194
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Mon Oct 28 21:01:52 2024 -0500
+
+    Working first test
+
+M	package-lock.json
+M	src/components/Answer.jsx
+M	src/components/Navbar.jsx
+M	src/tests/App.test.jsx
+R093	src/components/MatchCard.anya.test.jsx	src/tests/MatchCard.anya.test.jsx
+A	src/tests/Question.test.jsx
+
+commit 523a98519f549e68bf3db48c1b5e004cdedd7742
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Mon Oct 28 17:08:52 2024 -0500
+
+    Created a test Directory
+
+R100	src/App.test.jsx	src/tests/App.test.jsx
+
+commit c9e2222686d005b3ee48ab5c132e6d25b1edd4cd
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Mon Oct 28 16:44:20 2024 -0500
+
+    Updated .gitignore to ignore coverage
+
+M	.gitignore
+D	coverage/base.css
+D	coverage/block-navigation.js
+D	coverage/favicon.png
+D	coverage/index.html
+D	coverage/prettify.css
+D	coverage/prettify.js
+D	coverage/sort-arrow-sprite.png
+D	coverage/sorter.js
+D	coverage/src/App.jsx.html
+D	coverage/src/components/Answer.jsx.html
+D	coverage/src/components/Dispatcher.jsx.html
+D	coverage/src/components/MatchCard.jsx.html
+D	coverage/src/components/Navbar.jsx.html
+D	coverage/src/components/Profile.jsx.html
+D	coverage/src/components/Question.jsx.html
+D	coverage/src/components/SignOutButton.jsx.html
+D	coverage/src/components/index.html
+D	coverage/src/index.html
+D	coverage/src/index.jsx.html
+D	coverage/src/pages/EditPrefForm.jsx.html
+D	coverage/src/pages/Landing.jsx.html
+D	coverage/src/pages/Matches.jsx.html
+D	coverage/src/pages/PrefForm.jsx.html
+D	coverage/src/pages/ProfilePage.jsx.html
+D	coverage/src/pages/index.html
+D	coverage/src/utilities/firebase.js.html
+D	coverage/src/utilities/index.html
+D	coverage/src/utilities/useFormData.js.html
+
+commit 3f0574840a6a12acea66e91c73339fb08202bfbb
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Mon Oct 28 14:17:55 2024 -0500
+
+    preference matching test
+
+M	coverage/index.html
+M	coverage/src/App.jsx.html
+M	coverage/src/components/Answer.jsx.html
+M	coverage/src/components/Dispatcher.jsx.html
+M	coverage/src/components/MatchCard.jsx.html
+M	coverage/src/components/Navbar.jsx.html
+M	coverage/src/components/Profile.jsx.html
+M	coverage/src/components/Question.jsx.html
+M	coverage/src/components/SignOutButton.jsx.html
+M	coverage/src/components/index.html
+M	coverage/src/index.html
+M	coverage/src/index.jsx.html
+M	coverage/src/pages/EditPrefForm.jsx.html
+M	coverage/src/pages/Landing.jsx.html
+M	coverage/src/pages/Matches.jsx.html
+M	coverage/src/pages/PrefForm.jsx.html
+M	coverage/src/pages/ProfilePage.jsx.html
+M	coverage/src/pages/index.html
+M	coverage/src/utilities/firebase.js.html
+M	coverage/src/utilities/index.html
+M	coverage/src/utilities/useFormData.js.html
+M	src/components/MatchCard.anya.test.jsx
+
+commit 4ecb7fe63d90e41b19d0b7c6b877719abd0fc035
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Mon Oct 28 13:44:40 2024 -0500
+
+    MatchCard unit test
+
+M	.firebaserc
+M	.gitignore
+M	LICENSE
+M	README.md
+A	coverage/base.css
+A	coverage/block-navigation.js
+A	coverage/favicon.png
+A	coverage/index.html
+A	coverage/prettify.css
+A	coverage/prettify.js
+A	coverage/sort-arrow-sprite.png
+A	coverage/sorter.js
+A	coverage/src/App.jsx.html
+A	coverage/src/components/Answer.jsx.html
+A	coverage/src/components/Dispatcher.jsx.html
+A	coverage/src/components/MatchCard.jsx.html
+A	coverage/src/components/Navbar.jsx.html
+A	coverage/src/components/Profile.jsx.html
+A	coverage/src/components/Question.jsx.html
+A	coverage/src/components/SignOutButton.jsx.html
+A	coverage/src/components/index.html
+A	coverage/src/index.html
+A	coverage/src/index.jsx.html
+A	coverage/src/pages/EditPrefForm.jsx.html
+A	coverage/src/pages/Landing.jsx.html
+A	coverage/src/pages/Matches.jsx.html
+A	coverage/src/pages/PrefForm.jsx.html
+A	coverage/src/pages/ProfilePage.jsx.html
+A	coverage/src/pages/index.html
+A	coverage/src/utilities/firebase.js.html
+A	coverage/src/utilities/index.html
+A	coverage/src/utilities/useFormData.js.html
+M	index.html
+M	package.json
+M	public/robots.txt
+M	src/App.jsx
+M	src/App.test.jsx
+A	src/components/MatchCard.anya.test.jsx
+M	src/components/MatchCard.jsx
+M	src/index.css
+M	src/index.jsx
+M	vite.config.js
+
+commit 9affd72013fa0373d9b645accc556a4da5c3bb1b
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Mon Oct 21 10:57:50 2024 -0500
+
+    change match dropdown occasional noise to yellow button
+
+M	src/components/MatchCard.jsx
+
+commit a3d18271d4b5d99197f829d4d3ac61491ffc33fd
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Mon Oct 21 10:42:21 2024 -0500
+
+    added default profile photo, adjusted match score
+
+M	src/components/MatchCard.jsx
+M	src/components/Profile.jsx
+M	src/pages/Matches.jsx
+M	src/pages/PrefForm.jsx
+
+commit 40c1f3216e5c1cd098d3fc7118b5bb1f64077086
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Fri Oct 18 15:40:44 2024 -0500
+
+    even more css
+
+M	src/components/Profile.jsx
+M	src/styles/Matches.css
+M	src/styles/Profile.css
+
+commit 43e2875d0b62ef2736ded79bc4e68a43af38ba20
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Fri Oct 18 15:31:36 2024 -0500
+
+    some additional styling
+
+M	package-lock.json
+M	src/components/Navbar.jsx
+M	src/components/Profile.jsx
+M	src/components/SignOutButton.jsx
+M	src/pages/Landing.jsx
+M	src/pages/Matches.jsx
+M	src/pages/ProfilePage.jsx
+M	src/styles/Matches.css
+M	src/styles/Navbar.css
+M	src/styles/Profile.css
+M	src/utilities/testData.json
+
+commit 347327dfa4228bf6bf8cb66731f34129482e3348
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Fri Oct 18 15:30:12 2024 -0500
+
+    make profile photo not required
+
+M	src/pages/EditPrefForm.jsx
+M	src/pages/PrefForm.jsx
+
+commit eb373e4615a3630b369dbf8f6e1431ea46aa93bb
+Author: Anya <116769112+anyabdch@users.noreply.github.com>
+Date:   Fri Oct 18 15:12:05 2024 -0500
+
+    Update App.css
+
+M	src/App.css
+
+commit 0cf7f9e391700d3eb2bb3b680aed392416cbab72
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Fri Oct 18 12:53:57 2024 -0500
+
+    gigantic commit for user auth and related adjustments
+
+M	src/components/Dispatcher.jsx
+M	src/components/Navbar.jsx
+M	src/components/Profile.jsx
+A	src/components/SignOutButton.jsx
+M	src/pages/EditPrefForm.jsx
+A	src/pages/Landing.jsx
+M	src/pages/Matches.jsx
+M	src/pages/PrefForm.jsx
+M	src/pages/ProfilePage.jsx
+M	src/utilities/firebase.js
+
+commit b6b37cf01f4f728c30006143d4ec4497acd177df
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:54:20 2024 -0500
+
+    Added Navbar to Matches
+
+M	src/pages/Matches.jsx
+
+commit c7c6844fe32d4f680ba94903ac7715ff2ce4ba66
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:50:33 2024 -0500
+
+    Added Edit Pref Feature
+
+M	src/components/Dispatcher.jsx
+A	src/pages/EditPrefForm.jsx
+
+commit 498cae2baf2208b02810e2e171e7ab75b78c32ac
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:45:00 2024 -0500
+
+    Added ProfilePage
+
+M	src/components/Dispatcher.jsx
+A	src/pages/ProfilePage.jsx
+
+commit 88444d5e65cb0806ef5280649aabd3eab7c10be6
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:41:51 2024 -0500
+
+    Added Navbar and Profile Components
+
+A	src/components/Navbar.jsx
+A	src/components/Profile.jsx
+
+commit e02fa825a8ee13171023f6a35e5094471661173e
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:40:43 2024 -0500
+
+    Added CSS Styles for components
+
+A	src/styles/Navbar.css
+A	src/styles/Profile.css
+
+commit bd3e556b7bccfd9e639a8da2293ae70c06670b67
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 16 19:36:23 2024 -0500
+
+    Restructed Project
+
+M	src/components/Answer.jsx
+M	src/components/Dispatcher.jsx
+M	src/components/Question.jsx
+R094	src/components/Matches.jsx	src/pages/Matches.jsx
+R095	src/components/PrefForm.jsx	src/pages/PrefForm.jsx
+R100	src/components/Matches.css	src/styles/Matches.css
+R100	src/components/PrefForm.css	src/styles/PrefForm.css
+
+commit 8e630013434f75e5f2a08662bb467eb4c9a1ad9d
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Wed Oct 16 19:26:12 2024 -0500
+
+    actually merge
+
+M	package-lock.json
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+
+commit 573decb8e5755a6e37757b5dababf42a32c9062a
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Wed Oct 16 19:04:33 2024 -0500
+
+    refactor dbdata
+
+M	src/components/Dispatcher.jsx
+M	src/components/Matches.jsx
+
+commit 28464d55e4d7d31f357e9de9f275bdbf52f828c8
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Wed Oct 16 18:13:44 2024 -0500
+
+    implement sort and filter, count matches, and test data
+
+M	package-lock.json
+M	src/components/Matches.jsx
+A	src/utilities/testData.json
+
+commit 0a95d5a501a5ec6a904471a8e1e3ec6a9fb3ea2c
+Author: Ellie Li <ellieli@dhcp-10-105-240-183.wireless.northwestern.private>
+Date:   Wed Oct 16 17:38:26 2024 -0500
+
+    form validation - ellie
+
+M	src/components/PrefForm.jsx
+
+commit bf0a95148457af12b4d7cdd7b80e908e5b436a78
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Tue Oct 15 15:08:47 2024 -0500
+
+    dropdown content/css
+
+M	src/App.css
+M	src/components/MatchCard.jsx
+
+commit 2c04f6df1ee2bd69e271b5e0ad0c5ca28c4544d0
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Tue Oct 15 13:58:47 2024 -0500
+
+    dropdowns + initial css
+
+M	package-lock.json
+M	src/App.css
+M	src/components/MatchCard.jsx
+R100	src/components/MatchCard.css	src/components/Matches.css
+M	src/components/Matches.jsx
+M	src/components/PrefForm.css
+
+commit 6fbe44d8308b305ae4a2e7c5128d19ae555cfe25
+Author: Ellie Li <ellieli@Ellies-MacBook-Pro-8.local>
+Date:   Tue Oct 15 12:55:49 2024 -0500
+
+    profile photo fix
+
+M	src/components/MatchCard.jsx
+M	src/components/PrefForm.jsx
+M	src/utilities/firebase.js
+
+commit 4ed149795f69e418d0aa6ee79f2e5ebc2d699db9
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Mon Oct 14 18:26:57 2024 -0500
+
+    partially complete implementation
+
+M	src/components/PrefForm.jsx
+M	src/utilities/firebase.js
+
+commit 220ca6b2d30d6bdb67fa9d3a602c1ef9fea8b891
+Author: Ellie Li <ellieli@dhcp-10-105-240-183.wireless.northwestern.private>
+Date:   Mon Oct 14 16:52:51 2024 -0500
+
+    first push
+
+M	src/components/Matches.jsx
+M	src/components/PrefForm.jsx
+M	src/utilities/firebase.js
+
+commit 647407945cd97848fae7c37e6fd5302af8ccd675
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Sun Oct 13 16:08:57 2024 -0500
+
+    sunday fixes
+
+M	src/components/Matches.jsx
+M	src/components/PrefForm.jsx
+
+commit 293c191e480096e11ea997a0b8669a9f4f5d44e7
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Sun Oct 13 15:32:42 2024 -0500
+
+    adjust matches
+
+M	src/components/Matches.jsx
+
+commit 1f1cf5f4d73fc98123a89e493aff4f9cfddb3baf
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Sun Oct 13 15:08:40 2024 -0500
+
+    add to database
+
+M	src/components/Answer.jsx
+M	src/components/PrefForm.jsx
+M	src/utilities/firebase.js
+A	src/utilities/useFormData.js
+
+commit b43ebd85ec1a83b45a63f6a6bf44a3b888434c78
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 13 00:49:59 2024 -0500
+
+    Eliminated Label Warnings
+
+M	src/components/Answer.jsx
+
+commit d55f2b7ab79fef521efec682e85004efb885485d
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 13 00:44:42 2024 -0500
+
+    Added Functional Checkboxes
+
+M	src/components/Answer.jsx
+M	src/components/PrefForm.jsx
+
+commit 746634cc415f63b492fd7ba70ab4f13cd960ed62
+Author: Ellie Li <ellieli@Ellies-MacBook-Pro-7.local>
+Date:   Sat Oct 12 14:40:19 2024 -0500
+
+    implemented match algo
+
+M	package-lock.json
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+
+commit dd6a66bbae00d76d572dd241ef58f3f13b86e963
+Author: Restoring73 <harry307919745@outlook.com>
+Date:   Fri Oct 11 18:26:24 2024 -0500
+
+    Implement read data
+
+M	src/components/Matches.jsx
+M	src/utilities/firebase.js
+
+commit 8ec80d7eb769d6db3061c98810ecb58bf193ad55
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Wed Oct 9 19:31:22 2024 -0500
+
+    checkbox features
+
+M	database.rules.json
+M	firebase.json
+M	src/components/Answer.jsx
+M	src/components/PrefForm.jsx
+M	src/components/Question.jsx
+M	src/utilities/firebase.js
+
+commit 85ad3cefce189b35b5cc6bfd5c937cfda57624f5
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 9 19:14:57 2024 -0500
+
+    Added more genders to the pref form
+
+M	src/components/PrefForm.jsx
+
+commit 819ed19a78db210f9ce82d91498d2aa1e4759599
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Wed Oct 9 19:08:31 2024 -0500
+
+    form css
+
+M	package-lock.json
+M	package.json
+M	src/components/Answer.jsx
+M	src/components/Dispatcher.jsx
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+M	src/components/PrefForm.css
+M	src/components/PrefForm.jsx
+M	src/components/Question.jsx
+
+commit 2bb96063276f046b30cf27601bfa8994e25dff61
+Author: Ellie Li <ellieli@Ellies-MacBook-Pro-6.local>
+Date:   Wed Oct 9 18:44:42 2024 -0500
+
+    db
+
+A	database.rules.json
+M	firebase.json
+A	src/utilities/firebase.js
+
+commit 13f1eccab444f59fcbbf1b6b3ed3cddab58e1e32
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Wed Oct 9 18:42:32 2024 -0500
+
+    Added genders to Pref Form
+
+M	src/components/PrefForm.jsx
+
+commit a06b856ef8de8f8e879117c58f502b40864f15fe
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Mon Oct 7 15:35:50 2024 -0500
+
+    fixed pref form typo, renamed file
+
+M	src/components/Answer.jsx
+R100	src/components/PrefFormStyle.css	src/components/PrefForm.css
+M	src/components/PrefForm.jsx
+M	src/components/Question.jsx
+
+commit fed9c78539094ff2b950c774785e4f2322e8ed25
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 17:28:24 2024 -0500
+
+    Fixed Syntax Error
+
+M	src/components/PrefForm.jsx
+
+commit c180e3b7502ffc3002b5317cccb08df66bb5006a
+Author: Restoring73 <harry307919745@outlook.com>
+Date:   Sun Oct 6 17:16:40 2024 -0500
+
+    Insert img
+
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+
+commit 876fe6d6b7952b0047e4581ad01ec0b3fe8f5f08
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 17:11:21 2024 -0500
+
+    Quick Fix in Answer
+
+M	src/components/Answer.jsx
+M	src/components/PrefForm.jsx
+
+commit bda93ef603670f1f835ab0c230071b8555ef909b
+Author: Ellie Li <ellieli@Ellies-MacBook-Pro-4.local>
+Date:   Sun Oct 6 17:04:51 2024 -0500
+
+    added link
+
+M	src/components/PrefForm.jsx
+
+commit 51dceda1ba00453a0862f5ddd07316f868730598
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 17:00:17 2024 -0500
+
+    Refactored PrefForm through Decomposition
+
+A	src/components/Answer.jsx
+M	src/components/PrefForm.jsx
+A	src/components/Question.jsx
+
+commit 9c2439740b3027c45aaf827038d67c5708853096
+Author: anyabdch <anya.bardach@gmail.com>
+Date:   Sun Oct 6 16:59:32 2024 -0500
+
+    matches styling
+
+M	src/App.css
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+
+commit a2f1bfde6da43534f9f2f74a700b7bf429996a00
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 16:27:32 2024 -0500
+
+    Added Questions to PrefForm
+
+M	src/components/PrefForm.jsx
+M	src/components/PrefFormStyle.css
+
+commit 2cc4e371375f3cadfa190a4116477fdc8eb666a1
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Sun Oct 6 16:13:23 2024 -0500
+
+    implemented basic cards
+
+M	package-lock.json
+M	package.json
+M	src/App.jsx
+M	src/components/Dispatcher.jsx
+M	src/components/MatchCard.jsx
+M	src/components/Matches.jsx
+
+commit e123a4bbc7935f496f6b9ce5f17cabb29daf5225
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 16:05:14 2024 -0500
+
+    Refactored handleChange method
+
+M	src/components/PrefForm.jsx
+
+commit 6efc1361f6f133f6f1fc60f79d34ad4fafadff0a
+Author: Ellie Li <ellieli@Ellies-MacBook-Pro-4.local>
+Date:   Sun Oct 6 15:55:32 2024 -0500
+
+    css and form
+
+M	src/components/PrefForm.jsx
+A	src/components/PrefFormStyle.css
+
+commit ec0e6f0341cbbd6be59c50b506bb55818c822fcc
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 15:44:07 2024 -0500
+
+    Refactored PrefForm
+
+M	src/components/Dispatcher.jsx
+M	src/components/PrefForm.jsx
+
+commit e66b3dc02933c1651b06e49a4297837185a2c2e0
+Author: Restoring73 <harry307919745@outlook.com>
+Date:   Sun Oct 6 15:35:18 2024 -0500
+
+    Init matches
+
+A	src/components/MatchCard.css
+A	src/components/MatchCard.jsx
+A	src/components/Matches.jsx
+
+commit 1d3288f4bc3855cae84acf34d7a2c83ee4a42534
+Author: patrickchen8 <patrick.chen0459@gmail.com>
+Date:   Sun Oct 6 15:33:59 2024 -0500
+
+    Created PreForm Outline
+
+A	src/components/PrefForm.jsx
+
+commit 3420a48bb0afbb3e0a97c01e21621481c43c5a6e
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Sun Oct 6 13:56:21 2024 -0500
+
+    initial setup of firebase deployment and basic routing
+
+A	.firebaserc
+A	firebase.json
+M	index.html
+M	package-lock.json
+M	package.json
+M	public/favicon.svg
+M	src/App.css
+M	src/App.jsx
+A	src/components/Dispatcher.jsx
+D	src/logo.svg
+
+commit 75cf7312b0fd2cced4e49e4bace6cc1f93339556
+Author: Patrick Jiang <patrick.jiang.2020@gmail.com>
+Date:   Fri Oct 4 18:06:17 2024 -0500
+
+    initial commit
+
+A	.gitignore
+A	LICENSE
+A	README.md
+A	index.html
+A	package-lock.json
+A	package.json
+A	public/favicon.svg
+A	public/robots.txt
+A	src/App.css
+A	src/App.jsx
+A	src/App.test.jsx
+A	src/index.css
+A	src/index.jsx
+A	src/logo.svg
+A	vite.config.js
