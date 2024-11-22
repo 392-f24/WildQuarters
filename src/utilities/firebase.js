@@ -3,9 +3,9 @@ import { useCallback, useEffect, useState } from 'react';
 import { initializeApp } from "firebase/app";
 // so apparently we were getting errors because there were a ref from both database and storage, 
 //so they were overwriting other. so if we rename them that can fix it
-import { getDatabase, onValue, ref as databaseRef, update } from 'firebase/database';
+import { getDatabase, onValue, ref as databaseRef, update, connectDatabaseEmulator } from 'firebase/database';
 import { getStorage, ref as storageRef, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut, getAdditionalUserInfo } from 'firebase/auth'; // AUTH STUFF
+import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithCredential, signInWithPopup, signOut, getAdditionalUserInfo, connectAuthEmulator } from 'firebase/auth'; // AUTH STUFF
 
 
 
